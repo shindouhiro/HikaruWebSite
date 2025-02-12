@@ -1,0 +1,18 @@
+{
+  "name": "hikaru-blog",
+  "version": "1.0.0",
+  "description": "个人博客",
+  "scripts": {
+    "dev": "vitepress dev",
+    "build": "vitepress build",
+    "preview": "vitepress preview"
+  },
+  "dependencies": {
+    "vitepress": "^1.0.0-rc.31",
+    "vue": "^3.3.8"
+  },
+  "devDependencies": {
+    "@unocss/vite": "^65.4.3",
+    "unocss": "^65.4.3"
+  }
+}
