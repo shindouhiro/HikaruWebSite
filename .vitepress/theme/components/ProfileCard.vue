@@ -1,71 +1,76 @@
 <template>
-  <div class="max-w-1200px mx-auto p-8">
-    <div class="flex gap-12 mb-8">
+  <div class="max-w-1200px mx-auto p-8 md:p-4">
+    <div class="flex gap-12 mb-8 flex-col md:flex-row">
       <!-- 左侧头像部分 -->
-      <div class="flex-shrink-0">
-        <div class="avatar-border">
-          <!-- <img src="/avatar.jpg" alt="花生" class="w-full h-full object-cover rounded-16px"> -->
+      <div class="flex-shrink-0 flex items-center justify-center md:justify-start">
+        <div class="w-32 h-32 rounded-full bg-gradient-to-r from-blue-500 to-teal-500 p-1">
+          <div class="w-full h-full rounded-full bg-[var(--vp-c-bg)] flex items-center justify-center">
+            <span class="text-4xl">🌟</span>
+          </div>
         </div>
       </div>
 
       <!-- 右侧信息部分 -->
-      <div class="flex-grow">
-        <h1 class="text-4xl font-bold text-primary m-0 mb-2">Hikaru</h1>
-        <p class="text-lg text-gray-600 m-0 mb-8">AI Native Coder </p>
+      <div class="flex-grow text-center md:text-left">
+        <h1 class="text-4xl font-bold bg-gradient-to-r from-blue-500 to-teal-500 bg-clip-text text-transparent m-0 mb-2">
+          Hikaru
+        </h1>
+        <p class="text-lg text-gray-600 dark:text-gray-400 m-0 mb-8">AI Native Coder</p>
         
         <div class="flex flex-col gap-4">
-          <div class="info-item">
-            <div class="info-icon">🏪</div>
-            <span>AppStore 付费榜 Top1「小猫补光灯」开发者</span>
+          <div class="info-item hover:bg-[var(--vp-c-bg)] p-4 rounded-lg transition-all duration-300">
+            <div class="text-2xl">🏪</div>
+            <span class="text-gray-700 dark:text-gray-300"></span>
           </div>
-          <div class="info-item">
-            <div class="info-icon">✨</div>
-            <span>10万+粉AI博主，B站/YouTube 频道：AI进化论-花生</span>
+          <div class="info-item hover:bg-[var(--vp-c-bg)] p-4 rounded-lg transition-all duration-300">
+            <div class="text-2xl">✨</div>
+            <span class="text-gray-700 dark:text-gray-300"></span>
           </div>
-          <div class="info-item">
-            <div class="info-icon">🎯</div>
-            <span>微软 | LinkedIn AI课程讲师</span>
+          <div class="info-item hover:bg-[var(--vp-c-bg)] p-4 rounded-lg transition-all duration-300">
+            <div class="text-2xl">🎯</div>
+            <span class="text-gray-700 dark:text-gray-300"></span>
           </div>
-          <div class="info-item">
-            <div class="info-icon">🌐</div>
-            <span>全球旅居中...66%的数字游民</span>
+          <div class="info-item hover:bg-[var(--vp-c-bg)] p-4 rounded-lg transition-all duration-300">
+            <div class="text-2xl">🌐</div>
+            <span class="text-gray-700 dark:text-gray-300"></span>
           </div>
         </div>
       </div>
     </div>
 
-    <div class="flex flex-wrap gap-4 mt-8">
+    <!-- 社交链接部分 -->
+    <div class="flex flex-wrap gap-4 mt-8 justify-center md:justify-start">
       <a href="#" class="social-link">
-        <div class="i-carbon-box"></div>
-        DeepSeek
+        <div class="i-carbon-box text-xl"></div>
+        <span class="hidden md:inline">DeepSeek</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-logo-youtube"></div>
-        Youtube
+        <div class="i-carbon-logo-youtube text-xl"></div>
+        <span class="hidden md:inline">Youtube</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-video"></div>
-        Bilibili
+        <div class="i-carbon-video text-xl"></div>
+        <span class="hidden md:inline">Bilibili</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-phone"></div>
-        小红书
+        <div class="i-carbon-phone text-xl"></div>
+        <span class="hidden md:inline">小红书</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-logo-twitter"></div>
-        X
+        <div class="i-carbon-logo-twitter text-xl"></div>
+        <span class="hidden md:inline">X</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-chat"></div>
-        WeChat
+        <div class="i-carbon-chat text-xl"></div>
+        <span class="hidden md:inline">WeChat</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-notification"></div>
-        公众号
+        <div class="i-carbon-notification text-xl"></div>
+        <span class="hidden md:inline">公众号</span>
       </a>
       <a href="#" class="social-link">
-        <div class="i-carbon-mobile"></div>
-        即刻
+        <div class="i-carbon-mobile text-xl"></div>
+        <span class="hidden md:inline">即刻</span>
       </a>
     </div>
   </div>
@@ -76,12 +81,17 @@
 </script>
 
 <style>
-/* 可以移除大部分样式，因为使用了 UnoCSS */
+.social-link {
+  @apply flex items-center gap-2 px-4 py-2 rounded-lg bg-[var(--vp-c-bg)] hover:translate-y-[-2px] transition-all duration-300;
+}
+
+.info-item {
+  @apply flex items-center gap-4 justify-center md:justify-start;
+}
+
 @media (max-width: 768px) {
-  .profile-section {
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
+  .social-link {
+    @apply p-3;
   }
 }
 </style>

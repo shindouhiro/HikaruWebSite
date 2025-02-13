@@ -1,3 +1,15 @@
 
 # 创建md文件
 - 美化md文件样式
+# 使用unocss
+- 用unocss美化样式
+- 不写style，用unocss
+
+
+# 创建容器化部署
+- 在本机打包后把文件放入容器
+- 打包npm run build不在容器中操作,通过脚本build后放入容器
+- Dockerfile 不做npm操作,在我的宿主机打包好后把文件放入
+- 打包脚本同时支持arm64和amd64
+- 写一个shell脚本打包 
+- 推送到shindouhiro/website
