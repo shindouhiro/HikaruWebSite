@@ -10,8 +10,8 @@
 
       <!-- 右侧信息部分 -->
       <div class="flex-grow">
-        <h1 class="text-4xl font-bold text-primary m-0 mb-2">花生</h1>
-        <p class="text-lg text-gray-600 m-0 mb-8">AI Native Coder | 第一代不会写代码的独立开发者</p>
+        <h1 class="text-4xl font-bold text-primary m-0 mb-2">Hikaru</h1>
+        <p class="text-lg text-gray-600 m-0 mb-8">AI Native Coder </p>
         
         <div class="flex flex-col gap-4">
           <div class="info-item">
