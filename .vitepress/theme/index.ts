@@ -1,5 +1,5 @@
 import DefaultTheme from 'vitepress/theme'
-import 'uno.css'
+import 'uno.css'  // 直接从 unocss 导入
 import UnocssLayout from './layouts/UnocssLayout.vue'
 import ProfileCard from './components/ProfileCard.vue'
 import AppCard from './components/AppCard.vue'

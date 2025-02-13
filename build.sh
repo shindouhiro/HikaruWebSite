@@ -72,6 +72,17 @@ success "构建完成!"
 success "版本: ${VERSION}"
 success "镜像: ${IMAGE_NAME}"
 
+# 远程执行重启服务
+info "正在重启远程服务..."
+ssh root@8.152.208.97 "cd docker && ./restart_services.sh"
+
+if [ $? -eq 0 ]; then
+    success "远程服务重启成功!"
+else
+    error "远程服务重启失败，请手动检查"
+    exit 1
+fi
+
 # 打印使用说明
 echo "
 使用说明:
@@ -80,3 +91,5 @@ docker run -d -p 80:80 ${IMAGE_NAME}:latest
 
 镜像支持的架构: ${PLATFORMS}
 " 
+
+
