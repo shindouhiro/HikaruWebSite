@@ -2,7 +2,9 @@ import DefaultTheme from 'vitepress/theme'
 import 'uno.css'  // 直接从 unocss 导入
 import UnocssLayout from './layouts/UnocssLayout.vue'
 import ProfileCard from './components/ProfileCard.vue'
-import AppCard from './components/AppCard.vue'
+import CheckInCalendar from './components/CheckInCalendar.vue'
+import LifePage from './components/LifePage.vue'
+import BookshelfCard from './components/BookshelfCard.vue'
 
 export default {
   extends: DefaultTheme,
@@ -10,6 +12,8 @@ export default {
   enhanceApp({ app }) {
     // 组件注册
     app.component('ProfileCard', ProfileCard)
-    app.component('AppCard', AppCard)
+    app.component('CheckInCalendar', CheckInCalendar)
+    app.component('LifePage', LifePage)
+    app.component('BookshelfCard', BookshelfCard)
   }
 }

@@ -94,7 +94,7 @@ const socialLinks = [
   { name: 'Youtube', icon: 'i-carbon-logo-youtube', url: '#' },
   { name: 'Bilibili', icon: 'i-carbon-video', url: '#' },
   { name: 'X', icon: 'i-carbon-logo-twitter', url: '#' },
-  { name: 'WeChat', icon: 'i-carbon-chat', url: '#' },
+  { name: 'WeChat', icon: 'i-custom:wechat', url: '#' },
   { name: '公众号', icon: 'i-carbon-notification', url: '#' },
   { name: '即刻', icon: 'i-carbon-mobile', url: '#' },
   { name: '小红书', icon: 'i-carbon-phone', url: '#' },

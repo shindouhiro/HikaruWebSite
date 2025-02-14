@@ -5,6 +5,9 @@ import { presetUno, presetIcons } from 'unocss'
 export default defineConfig({
   title: "Hikaru",
   description: "AI Native Coder",
+  head: [
+    ['meta', { name: 'referrer', content: 'no-referrer' }]
+  ],
   themeConfig: {
     outlineTitle: '本页目录',
     
@@ -27,12 +30,21 @@ export default defineConfig({
             ]
           },
           {
-            text: '跨平台',
+            text: '终端',
             items: [
               { text: 'LazyVim', link: '/tools/compatible/lazyvim' },
               { text: 'Yazi', link: '/tools/compatible/yazi' }
             ]
           }
+        ]
+      },
+      {
+        text: '生活',
+        items: [
+          { text: '打卡日历', link: '/life/' },
+          { text: '阅读', link: '/life/reading' },
+          { text: '运动', link: '/life/sports' },
+          { text: '写作', link: '/life/writing' }
         ]
       },
       {
@@ -63,6 +75,17 @@ export default defineConfig({
           items: [
             { text: 'LazyVim', link: '/tools/compatible/lazyvim' },
             { text: 'Yazi', link: '/tools/compatible/yazi' }
+          ]
+        }
+      ],
+      '/life/': [
+        {
+          text: '生活记录',
+          items: [
+            { text: '打卡日历', link: '/life/' },
+            { text: '阅读', link: '/life/reading' },
+            { text: '运动', link: '/life/sports' },
+            { text: '写作', link: '/life/writing' }
           ]
         }
       ],
