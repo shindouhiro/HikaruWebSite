@@ -5,6 +5,7 @@ import ProfileCard from './components/ProfileCard.vue'
 import CheckInCalendar from './components/CheckInCalendar.vue'
 import LifePage from './components/LifePage.vue'
 import BookshelfCard from './components/BookshelfCard.vue'
+import RunningChallenge from './components/RunningChallenge.vue'
 
 export default {
   extends: DefaultTheme,
@@ -15,5 +16,6 @@ export default {
     app.component('CheckInCalendar', CheckInCalendar)
     app.component('LifePage', LifePage)
     app.component('BookshelfCard', BookshelfCard)
+    app.component('RunningChallenge', RunningChallenge)
   }
 }

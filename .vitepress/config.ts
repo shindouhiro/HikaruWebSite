@@ -43,8 +43,8 @@ export default defineConfig({
         items: [
           { text: '打卡日历', link: '/life/' },
           { text: '阅读', link: '/life/reading' },
-          { text: '运动', link: '/life/sports' },
-          { text: '写作', link: '/life/writing' }
+          { text: '运动', link: '/life/running' },
+          { text: '写作', link: '/life/writing' },
         ]
       },
       {
@@ -55,7 +55,7 @@ export default defineConfig({
       }
     ],
 
-    // 添加侧边栏
+    // 只为工具和站点页面添加侧边栏
     sidebar: {
       '/tools/': [
         {
@@ -75,17 +75,6 @@ export default defineConfig({
           items: [
             { text: 'LazyVim', link: '/tools/compatible/lazyvim' },
             { text: 'Yazi', link: '/tools/compatible/yazi' }
-          ]
-        }
-      ],
-      '/life/': [
-        {
-          text: '生活记录',
-          items: [
-            { text: '打卡日历', link: '/life/' },
-            { text: '阅读', link: '/life/reading' },
-            { text: '运动', link: '/life/sports' },
-            { text: '写作', link: '/life/writing' }
           ]
         }
       ],
