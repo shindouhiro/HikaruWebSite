@@ -6,7 +6,9 @@ aside: true
 outline: deep
 ---
 
-# Raycast - 现代化的 Mac 效率工具
+<RaycastGuide />
+
+## 详细教程
 
 ::: tip 导航
 - [基本介绍](#基本介绍)

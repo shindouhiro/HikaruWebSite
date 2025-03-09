@@ -1,0 +1,123 @@
+---
+layout: doc
+title: Node.js 模块机制
+description: 深入理解 Node.js 的模块加载机制
+aside: true
+outline: deep
+---
+
+# Node.js 模块机制
+
+## 模块系统概述
+
+Node.js 采用 CommonJS 规范实现模块系统，同时也支持 ES Modules。模块机制是 Node.js 实现代码复用和依赖管理的核心。
+
+## CommonJS 模块
+
+### 基本语法
+```javascript
+// 导出模块
+module.exports = {
+  method1: function() {},
+  method2: function() {}
+}
+
+// 导入模块
+const module = require('./module-path')
+```
+
+### 模块加载过程
+1. 路径分析
+2. 文件定位
+3. 编译执行
+4. 缓存优化
+
+## ES Modules 支持
+
+### 使用方式
+```javascript
+// 导出
+export const method1 = () => {}
+export default class MyClass {}
+
+// 导入
+import { method1 } from './module'
+import MyClass from './module'
+```
+
+### 与 CommonJS 的区别
+1. 静态导入导出
+2. 异步加载
+3. 值引用 vs 值拷贝
+
+## 模块查找机制
+
+### 模块路径解析
+1. 内置模块
+2. node_modules
+3. 相对路径
+4. 绝对路径
+
+### 文件扩展名处理
+1. .js
+2. .json
+3. .node
+4. .mjs
+
+## 循环依赖处理
+
+### CommonJS 循环依赖
+```javascript
+// a.js
+exports.done = false
+const b = require('./b')
+exports.done = true
+
+// b.js
+const a = require('./a')
+console.log(a.done) // false
+```
+
+### ES Modules 循环依赖
+```javascript
+// a.mjs
+import { b } from './b'
+export let a = 1
+
+// b.mjs
+import { a } from './a'
+export let b = 2
+```
+
+## 性能优化
+
+### 模块缓存
+- require.cache 机制
+- 缓存清理
+- 热更新实现
+
+### 按需加载
+```javascript
+// 动态导入
+import('./module').then(module => {
+  // 使用模块
+})
+```
+
+## 最佳实践
+
+### 目录结构
+```
+project/
+├── node_modules/
+├── src/
+│   ├── modules/
+│   └── index.js
+└── package.json
+```
+
+### 模块设计原则
+1. 单一职责
+2. 接口稳定
+3. 版本语义化
+4. 依赖声明完整

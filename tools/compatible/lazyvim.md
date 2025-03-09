@@ -6,6 +6,8 @@ aside: true
 outline: deep
 ---
 
+<LazyVimGuide />
+
 # LazyVim - 现代化的 Neovim 配置框架
 
 ::: tip 🚀 简介

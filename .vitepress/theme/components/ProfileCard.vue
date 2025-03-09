@@ -22,9 +22,7 @@
                    bg-clip-text text-transparent m-0 mb-3">
           Hikaru
         </h1>
-        <p class="text-base md:text-lg text-gray-600 dark:text-[#8B949E] m-0 mb-6 md:mb-8">
-          AI Native Coder
-        </p>
+     
         
         <div class="flex flex-col gap-3 md:gap-4">
           <div class="info-item bg-gray-50/80 dark:bg-[#161B22] 
@@ -34,22 +32,22 @@
                       hover:shadow-md dark:hover:shadow-[0_4px_20px_rgba(0,0,0,0.2)]
                       transition-all duration-300">
             <div class="text-2xl transform group-hover:scale-110 transition-transform duration-300">🔮</div>
-            <span class="text-gray-700 dark:text-[#8B949E]">AI Development & Integration</span>
+            <span class="text-gray-700 dark:text-[#8B949E]">代码与峡谷的双重Buff加持者</span>
           </div>
           <div class="info-item bg-gray-50 dark:bg-[#161B22] hover:bg-gray-100 dark:hover:bg-[#1C2128] 
                       border border-gray-200 dark:border-[#30363D] rounded-lg p-4 transition-all duration-300">
             <div class="text-2xl">💫</div>
-            <span class="text-gray-700 dark:text-[#8B949E]">Creative Problem Solving</span>
+            <span class="text-gray-700 dark:text-[#8B949E]">Neovim 终端爱好者</span>
           </div>
           <div class="info-item bg-gray-50 dark:bg-[#161B22] hover:bg-gray-100 dark:hover:bg-[#1C2128] 
                       border border-gray-200 dark:border-[#30363D] rounded-lg p-4 transition-all duration-300">
             <div class="text-2xl">⚡</div>
-            <span class="text-gray-700 dark:text-[#8B949E]">Performance Optimization</span>
+            <span class="text-gray-700 dark:text-[#8B949E]">户外徒步的程序猿酋长</span>
           </div>
           <div class="info-item bg-gray-50 dark:bg-[#161B22] hover:bg-gray-100 dark:hover:bg-[#1C2128] 
                       border border-gray-200 dark:border-[#30363D] rounded-lg p-4 transition-all duration-300">
             <div class="text-2xl">🌐</div>
-            <span class="text-gray-700 dark:text-[#8B949E]">Global Development Solutions</span>
+            <span class="text-gray-700 dark:text-[#8B949E]">挖掘中...</span>
           </div>
         </div>
       </div>
@@ -89,16 +87,16 @@
 </template>
 
 <script setup lang="ts">
-const socialLinks = [
-  { name: 'DeepSeek', icon: 'i-carbon-box', url: '#' },
-  { name: 'Youtube', icon: 'i-carbon-logo-youtube', url: '#' },
-  { name: 'Bilibili', icon: 'i-carbon-video', url: '#' },
-  { name: 'X', icon: 'i-carbon-logo-twitter', url: '#' },
-  { name: 'WeChat', icon: 'i-custom:wechat', url: '#' },
-  { name: '公众号', icon: 'i-carbon-notification', url: '#' },
-  { name: '即刻', icon: 'i-carbon-mobile', url: '#' },
-  { name: '小红书', icon: 'i-carbon-phone', url: '#' },
-]
+// const socialLinks = [
+//   { name: 'DeepSeek', icon: 'i-carbon-box', url: '#' },
+//   { name: 'Youtube', icon: 'i-carbon-logo-youtube', url: '#' },
+//   { name: 'Bilibili', icon: 'i-carbon-video', url: '#' },
+//   { name: 'X', icon: 'i-carbon-logo-twitter', url: '#' },
+//   { name: 'WeChat', icon: 'i-custom:wechat', url: '#' },
+//   { name: '公众号', icon: 'i-carbon-notification', url: '#' },
+//   { name: '即刻', icon: 'i-carbon-mobile', url: '#' },
+//   { name: '小红书', icon: 'i-carbon-phone', url: '#' },
+// ]
 </script>
 
 <style>

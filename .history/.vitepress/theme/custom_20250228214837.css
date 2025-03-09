@@ -1,0 +1,21 @@
+/* 视频容器样式 */
+.video-container {
+  @apply w-full max-w-4xl mx-auto my-4;
+}
+
+/* 响应式视频容器 */
+.video-container iframe {
+  @apply w-full aspect-video rounded-lg shadow-lg;
+}
+
+/* 暗色模式适配 */
+.dark .video-container iframe {
+  @apply shadow-gray-800;
+}
+
+/* 移动端适配 */
+@media (max-width: 640px) {
+  .video-container {
+    @apply max-w-full px-4;
+  }
+} 

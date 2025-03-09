@@ -16,3 +16,6 @@
 - 打包脚本同时支持arm64和amd64
 - 写一个shell脚本打包 
 - 推送到shindouhiro/website
+
+# 如有图片从web上获取
+- 图片从web上获取
