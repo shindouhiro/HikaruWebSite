@@ -120,7 +120,7 @@
 
       <!-- 打卡详情弹窗 -->
       <div v-if="showModal" 
-           class="fixed inset-0 bg-black/50 flex items-center justify-center z-50"
+           class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto"
            @click="showModal = false">
         <div class="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 max-w-lg w-full mx-4 shadow-xl"
              @click.stop>
@@ -137,7 +137,7 @@
           <div v-if="getDayStatus(selectedDay).completed">
             <img :src="getDayStatus(selectedDay).image" 
                  :alt="`Day ${selectedDay}`"
-                 class="w-full rounded-lg mb-4" />
+                 class="w-full rounded-lg mb-4 mt-2" />
             <div class="space-y-2">
               <div class="flex justify-between text-sm">
                 <span class="text-gray-600 dark:text-gray-400">日期</span>
@@ -173,29 +173,12 @@
 import { ref } from 'vue'
 
 // 示例数据
-const completedDays = 2
+const completedDays = 1
 const totalDistance = 5
 const currentStreak = 1
 const averagePace = "5'30"
 
-const recentRecords = [
-  {
-    day: '1',
-    date: '2025-02-14',
-    time: '06:30',
-    distance: '5.0',
-    pace: "5'30",
-    duration: '27:30'
-  },
-  {
-    day: '2',
-    date: '2025-02-14',
-    time: '06:30',
-    distance: '5.0',
-    pace: "5'30",
-    duration: '27:30'
-  }
-]
+
 
 // 弹窗控制
 const showModal = ref(false)
@@ -205,22 +188,14 @@ const selectedDay = ref(1)
 const runningData = {
   1: {
     completed: true,
-    date: '2025-02-14',
+    date: '2025-03-10',
     distance: '5.0',
-    pace: "5'30",
-    duration: '27:30',
-    image: 'https://i0.hdslb.com/bfs/article/watermark/7c0c4c616f2b35d3c84f55f50d2f1fbf16643837.jpg',
-    note: '今天天气不错，晨跑很舒服。保持这个势头！'
+    pace: "9'12",
+    duration: '47:49',
+    image: 'https://i0.hdslb.com/bfs/article/623a0ceca6c1a0f497b92447bc09199716643837.jpg',
+    note: '恢复跑步的第一天'
   },
-  2: {
-    completed: true,
-    date: '2025-02-14',
-    distance: '5.0',
-    pace: "5'30",
-    duration: '27:30',
-    image: 'https://i0.hdslb.com/bfs/article/watermark/7c0c4c616f2b35d3c84f55f50d2f1fbf16643837.jpg',
-    note: '今天天气不错，晨跑很舒服。保持这个势头！'
-  }
+ 
   // 可以继续添加更多天的数据
 }
 
