@@ -11,6 +11,7 @@ interface NavItem {
 }
 
 export default defineConfig({
+  appearance: 'dark', // 默认使用黑色主题，但允许用户切换
   title: "Hikaru",
   description: "AI Native Coder",
   head: [
@@ -49,40 +50,40 @@ export default defineConfig({
           }
         ]
       },
-      {
-        text: 'AI',
-        items: [
-          {
-            text: 'Cursor',
-            items: [
-              { text: '无限续杯', link: '/ai/cursor/free-trial' }
-            ]
-          },
-          {
-            text: '智能体',
-            items: [
-              { text: '基础概念', link: '/ai/agents/concepts' }
-            ]
-          }
-        ]
-      },
-      {
-        text: '前端八股文',
-        items: [
-          { text: '工程化', 
-            items: [
-              { text: '幽灵依赖', link: '/frontend/interview/ghost-dependencies' },
-              { text: 'Node.js模块机制', link: '/frontend/interview/node-modules' },
-              { text: 'ESM与CJS的区别', link: '/frontend/interview/esm-vs-cjs' },
-            ]
-          },
-          { text: 'Vue', 
-            items: [
-              { text: 'name 属性', link: '/frontend/interview/framework/vue-name' },
-            ]
-          }
-        ]
-      },
+      // {
+      //   text: 'AI',
+      //   items: [
+      //     {
+      //       text: 'Cursor',
+      //       items: [
+      //         { text: '无限续杯', link: '/ai/cursor/free-trial' }
+      //       ]
+      //     },
+      //     {
+      //       text: '智能体',
+      //       items: [
+      //         { text: '基础概念', link: '/ai/agents/concepts' }
+      //       ]
+      //     }
+      //   ]
+      // },
+      // {
+      //   text: '前端八股文',
+      //   items: [
+      //     { text: '工程化', 
+      //       items: [
+      //         { text: '幽灵依赖', link: '/frontend/interview/ghost-dependencies' },
+      //         { text: 'Node.js模块机制', link: '/frontend/interview/node-modules' },
+      //         { text: 'ESM与CJS的区别', link: '/frontend/interview/esm-vs-cjs' },
+      //       ]
+      //     },
+      //     { text: 'Vue', 
+      //       items: [
+      //         { text: 'name 属性', link: '/frontend/interview/framework/vue-name' },
+      //       ]
+      //     }
+      //   ]
+      // },
       // {
       //   text: '编程',
       //   items: [
@@ -93,7 +94,8 @@ export default defineConfig({
         text: '生活',
         items: [
           { text: '阅读', link: '/life/reading' },
-          { text: '运动', link: '/life/running' }
+          { text: '运动', link: '/life/running' },
+          { text: '观影记录', link: '/movie-collection' }
         ]
       },
       // { 

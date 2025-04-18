@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 确保脚本在错误时退出
+set -e
+
 # 颜色定义
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
@@ -32,7 +35,7 @@ fi
 
 # 设置变量
 IMAGE_NAME="shindouhiro/website"
-VERSION=$(date +%Y%m%d)
+VERSION=$(date +%Y%m%d%H%M%S)
 PLATFORMS="linux/amd64,linux/arm64"
 
 # 1. 清理旧的构建文件
