@@ -247,9 +247,9 @@ import { useData } from "vitepress";
 const { site } = useData();
 
 // 示例数据
-const completedDays = 3;
+const completedDays = 4;
 const totalDistance = 5;
-const currentStreak = 2;
+const currentStreak = 3;
 const averagePace = "5'30";
 
 // 设置页面标题
@@ -297,6 +297,14 @@ const recentRecords = [
     distance: "5.0",
     pace: "6'24",
     duration: "32:02",
+  },
+  {
+    day: 4,
+    date: "2025-04-19",
+    time: "6:50",
+    distance: "5.0",
+    pace: "6'22",
+    duration: "32:01",
   },
 ];
 
@@ -363,6 +371,15 @@ const runningData = {
     image: 
       "https://i0.hdslb.com/bfs/article/6633f7d2cee57c9e040cabfa10f91ccc16643837.jpg",
       note: "恢复跑步的第三天",
+  },
+  4: {
+    completed: true,
+    date: "2025-04-19",
+    distance: "5.0",
+    pace: "6'22",
+    image:
+    "https://i0.hdslb.com/bfs/article/06263bfcf438fbbff52c1f225a1229ee16643837.jpg",
+    note: "恢复跑步的第四天",
   }
 
   // 可以继续添加更多天的数据
