@@ -1,8 +1,105 @@
-# GitHub Actions 自动化部署文档
-
-
+# GitHub Actions
+<div class="flex justify-center mt-4">
+<WechatShare v-bind="{title: 'GitHub Actions 自动化部署文档', desc: 'GitHub Actions 自动化部署文档'}" />
+</div>
 
 ![GitHub Actions 工作流程](https://i0.hdslb.com/bfs/article/0dd01ec13b59a7a24388fc12f4aac9cd16643837.png)
+
+## 技术蛋科普
+<BilibiliPlayer
+  src="//player.bilibili.com/player.html?bvid=BV1aT421y7Ar&page=1&high_quality=1&danmaku=0&autoplay=0"
+  title="github actions 自动化入门"
+  description="GitHub Actions工作流自动化的入门核心"
+  :high-quality="true"
+  :danmaku="false"
+/>
+
+## yaml文件
+```yaml
+name: Docker Build and Publish
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+env:
+  REGISTRY: docker.io
+  IMAGE_NAME: shindouhiro/website
+  REMOTE_HOST: x.x.x.x
+  REMOTE_USER: root
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      packages: write
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Build website
+        run: npm run build
+
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v3
+
+      - name: Set up Docker Buildx
+        uses: docker/setup-buildx-action@v3
+
+      - name: Log into Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+
+      - name: Extract metadata for Docker
+        id: meta
+        uses: docker/metadata-action@v5
+        with:
+          images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+          tags: |
+            type=raw,value=latest
+            type=sha,prefix={{date 'YYYYMMDD'}}-
+
+      - name: Build and push Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: .
+          platforms: linux/amd64,linux/arm64
+          push: true
+          tags: ${{ steps.meta.outputs.tags }}
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # 设置 SSH 密钥
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # 添加服务器到已知主机
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ env.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
+      # 执行远程部署命令
+      - name: Deploy to server
+        run: |
+          ssh ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} "cd docker && ./restart_services.sh"
+```
 
 
 ## 工作流程概述
@@ -10,6 +107,7 @@
 本文档详细说明了使用 GitHub Actions 进行自动化构建和部署的完整流程。
 
 ## 环境配置
+
 
 ```yaml
 env:

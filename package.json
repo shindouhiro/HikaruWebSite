@@ -9,6 +9,8 @@
     "preview": "vitepress preview"
   },
   "dependencies": {
+    "i": "^0.3.7",
+    "qrcode": "^1.5.4",
     "vitepress": "^1.0.0-rc.31",
     "vue": "^3.3.8"
   },

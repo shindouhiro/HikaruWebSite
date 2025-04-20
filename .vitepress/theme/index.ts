@@ -18,6 +18,8 @@ import TmuxGuide from './components/TmuxGuide.vue'
 import PhotoCompositionGuide from './components/PhotoCompositionGuide.vue'
 import BilibiliVideo from '../../components/BilibiliVideo.vue'
 import GitHubActions from './components/GitHubActions.vue'
+import WechatShare from './components/WechatShare.vue'
+import BilibiliPlayer from './components/BilibiliPlayer.vue'
 import './custom.css'
 
 export default {
@@ -41,5 +43,7 @@ export default {
     app.component('PhotoCompositionGuide', PhotoCompositionGuide)
     app.component('BilibiliVideo', BilibiliVideo)
     app.component('GitHubActions', GitHubActions)
+    app.component('WechatShare', WechatShare)
+    app.component('BilibiliPlayer', BilibiliPlayer)
   }
 }
