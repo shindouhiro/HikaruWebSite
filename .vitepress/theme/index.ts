@@ -17,6 +17,7 @@ import LazyDockerGuide from './components/LazyDockerGuide.vue'
 import TmuxGuide from './components/TmuxGuide.vue'
 import PhotoCompositionGuide from './components/PhotoCompositionGuide.vue'
 import BilibiliVideo from '../../components/BilibiliVideo.vue'
+import GitHubActions from './components/GitHubActions.vue'
 import './custom.css'
 
 export default {
@@ -39,5 +40,6 @@ export default {
     app.component('TmuxGuide', TmuxGuide)
     app.component('PhotoCompositionGuide', PhotoCompositionGuide)
     app.component('BilibiliVideo', BilibiliVideo)
+    app.component('GitHubActions', GitHubActions)
   }
 }

@@ -19,8 +19,6 @@ export default defineConfig({
   ],
   themeConfig: {
     outlineTitle: '本页目录',
-    
-    // 添加导航菜单
     nav: [
       { text: '首页', link: '/' },
       { 
@@ -50,46 +48,17 @@ export default defineConfig({
           }
         ]
       },
-      // {
-      //   text: 'AI',
-      //   items: [
-      //     {
-      //       text: 'Cursor',
-      //       items: [
-      //         { text: '无限续杯', link: '/ai/cursor/free-trial' }
-      //       ]
-      //     },
-      //     {
-      //       text: '智能体',
-      //       items: [
-      //         { text: '基础概念', link: '/ai/agents/concepts' }
-      //       ]
-      //     }
-      //   ]
-      // },
-      // {
-      //   text: '前端八股文',
-      //   items: [
-      //     { text: '工程化', 
-      //       items: [
-      //         { text: '幽灵依赖', link: '/frontend/interview/ghost-dependencies' },
-      //         { text: 'Node.js模块机制', link: '/frontend/interview/node-modules' },
-      //         { text: 'ESM与CJS的区别', link: '/frontend/interview/esm-vs-cjs' },
-      //       ]
-      //     },
-      //     { text: 'Vue', 
-      //       items: [
-      //         { text: 'name 属性', link: '/frontend/interview/framework/vue-name' },
-      //       ]
-      //     }
-      //   ]
-      // },
-      // {
-      //   text: '编程',
-      //   items: [
-      //     { text: '项目', link: '/projects/' }
-      //   ]
-      // },
+      {
+        text: '技术分享',
+        items: [
+          {
+            text: 'DevOps',
+            items: [
+              { text: 'GitHub Actions', link: '/devops/github-actions' },
+            ]
+          }
+        ]
+      },
       {
         text: '生活',
         items: [
@@ -98,27 +67,6 @@ export default defineConfig({
           { text: '观影记录', link: '/movie-collection' }
         ]
       },
-      // { 
-      //   text: '兴趣',
-      //   items: [
-      //     { 
-      //       text: '摄影',
-      //       items: [
-      //         { text: '构图基础', link: '/interests/photography/composition-basics' },
-      //         { text: '吊脚式构图', link: '/interests/photography/composition-dangling' }
-      //       ]
-      //     }
-      //     // 其他兴趣可以在这里添加，比如:
-      //     // { text: '绘画', items: [...] },
-      //     // { text: '音乐', items: [...] }
-      //   ]
-      // },
-      // {
-      //   text: '站点',
-      //   items: [
-      //     { text: 'Z-Library', link: '/sites/z-library' }
-      //   ]
-      // },
     ] satisfies DefaultTheme.NavItem[],
 
   },
