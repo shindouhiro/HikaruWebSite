@@ -247,9 +247,9 @@ import { useData } from "vitepress";
 const { site } = useData();
 
 // 示例数据
-const completedDays = 4;
+const completedDays = 6;
 const totalDistance = 5;
-const currentStreak = 3;
+const currentStreak = 2;
 const averagePace = "5'30";
 
 // 设置页面标题
@@ -275,20 +275,20 @@ watch(
 // 最近记录数据
 const recentRecords = [
   {
-    day: 2,
-    date: "2025-04-17",
-    time: "18:30",
-    distance: "5.0",
-    pace: "6'41",
-    duration: "33:25",
-  },
-  {
     day: 1,
     date: "2025-03-10",
     time: "19:15",
     distance: "5.0",
     pace: "9'12",
     duration: "47:49",
+  },
+  {
+    day: 2,
+    date: "2025-04-17",
+    time: "18:30",
+    distance: "5.0",
+    pace: "6'41",
+    duration: "33:25",
   },
   {
     day: 3,
@@ -301,11 +301,27 @@ const recentRecords = [
   {
     day: 4,
     date: "2025-04-19",
-    time: "6:50",
+    time: "18:50",
     distance: "5.0",
     pace: "6'22",
     duration: "32:01",
   },
+  {
+    day: 5,
+    date: "2025-04-22",
+    time: "20:30",
+    distance: "5.0",
+    pace: "6'20",
+    duration: "32:21",
+  },
+  {
+    day: 6,
+    date: "2025-04-23",
+    time: "21:00",
+    distance: "5.0",
+    pace: "6'10",
+    duration: "31:03",
+  }
 ];
 
 // 弹窗控制
@@ -380,9 +396,27 @@ const runningData = {
     image:
     "https://i0.hdslb.com/bfs/article/06263bfcf438fbbff52c1f225a1229ee16643837.jpg",
     note: "恢复跑步的第四天",
+  },
+  5: {
+    completed: true,
+    date: "2025-04-22",
+    distance: "5.0",
+    pace: "6'20",
+    duration: "32:21",
+    image:
+     "https://i0.hdslb.com/bfs/article/b6a3c7ca2dcdd3006dd6c05c45da457a16643837.jpg",
+    note: "恢复跑步的第五天",
+  },
+  6: {
+    completed: true,
+    date: "2025-04-23",
+    distance: "5.0",
+    pace: "6'10",
+    duration: "31:03",
+    image:
+     "https://i0.hdslb.com/bfs/article/74d3358535668cf221fa43e73ad6831916643837.jpg",
+    note: "恢复跑步的第六天",
   }
-
-  // 可以继续添加更多天的数据
 };
 
 // 获取某天的状态

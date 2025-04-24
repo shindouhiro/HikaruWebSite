@@ -120,7 +120,7 @@ env:
 ## 构建部署流程
 
 <script setup>
-document.title = 'GitHub Actions 自动化部署文档';
+document.title = 'DevOps - GitHub Actions 自动化部署';
 const mainSteps = [
   {
     name: '代码检出',
