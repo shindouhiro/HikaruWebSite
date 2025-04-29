@@ -196,7 +196,7 @@ const completedBooks = [
   },
   {
     id: 4,
-    titile: '与他共度61世',
+    title: '与他共度61世',
     author: '的灰',
     cover: 'https://i0.hdslb.com/bfs/article/6df8f906d042a01cad35460faffac8de16643837.png',
     tags: ['传记'],
