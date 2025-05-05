@@ -20,6 +20,7 @@ import BilibiliVideo from '../../components/BilibiliVideo.vue'
 import GitHubActions from './components/GitHubActions.vue'
 import WechatShare from './components/WechatShare.vue'
 import BilibiliPlayer from './components/BilibiliPlayer.vue'
+import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
 import './custom.css'
 
 export default {
@@ -45,5 +46,6 @@ export default {
     app.component('GitHubActions', GitHubActions)
     app.component('WechatShare', WechatShare)
     app.component('BilibiliPlayer', BilibiliPlayer)
+    app.component('DouyinEmbed', DouyinEmbed)
   }
 }

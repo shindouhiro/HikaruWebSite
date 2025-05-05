@@ -56,6 +56,13 @@ export default defineConfig({
             items: [
               { text: 'GitHub Actions', link: '/devops/github-actions' },
             ]
+          },
+          {
+            text: '前端开发',
+            items: [
+              { text: 'NPM 包发布指南', link: '/frontend/npm-publish' },
+              { text: 'NPM 发布组件库', link: '/frontend/component-ui' }
+            ]
           }
         ]
       },
