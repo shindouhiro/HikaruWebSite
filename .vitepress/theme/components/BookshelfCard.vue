@@ -169,7 +169,7 @@
 const currentReading = [
   {
     id: 1,
-    title: '非暴力沟通123',
+    title: '非暴力沟通',
     author: '马歇尔•卢森堡',
     cover: 'https://i0.hdslb.com/bfs/article/0158af0f2e4dbb573ac1258c6d371f7e16643837.jpg',
     progress: 50,
