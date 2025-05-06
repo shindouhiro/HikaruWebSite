@@ -21,6 +21,7 @@ import GitHubActions from './components/GitHubActions.vue'
 import WechatShare from './components/WechatShare.vue'
 import BilibiliPlayer from './components/BilibiliPlayer.vue'
 import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
+import PackageExecutor from '../../frontend/components/PackageExecutor.vue'
 import './custom.css'
 
 export default {
@@ -47,5 +48,6 @@ export default {
     app.component('WechatShare', WechatShare)
     app.component('BilibiliPlayer', BilibiliPlayer)
     app.component('DouyinEmbed', DouyinEmbed)
+    app.component('PackageExecutor', PackageExecutor)
   }
 }

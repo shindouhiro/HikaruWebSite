@@ -61,7 +61,8 @@ export default defineConfig({
             text: '前端开发',
             items: [
               { text: 'NPM 包发布指南', link: '/frontend/npm-publish' },
-              { text: 'NPM 发布组件库', link: '/frontend/component-ui' }
+              { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
+              { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' }
             ]
           }
         ]
