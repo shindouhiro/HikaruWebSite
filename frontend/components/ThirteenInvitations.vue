@@ -72,35 +72,6 @@
               观看日期：{{ episode.watchDate }}
             </div>
 
-            <!-- 操作按钮 -->
-            <div class="flex justify-end">
-              <button
-                v-if="!episode.watched"
-                @click="markAsWatched(episode)"
-                class="px-4 py-2 rounded-full text-sm font-medium
-                       transition-all duration-200 flex items-center
-                       bg-blue-500 text-white
-                       hover:bg-blue-600 active:bg-blue-700
-                       dark:bg-blue-600 dark:hover:bg-blue-700 dark:active:bg-blue-800
-                       shadow-sm hover:shadow-md"
-              >
-                <i class="i-carbon-checkmark mr-1"></i>
-                标记已看
-              </button>
-              <button
-                v-else
-                @click="markAsUnwatched(episode)"
-                class="px-4 py-2 rounded-full text-sm font-medium
-                       transition-all duration-200 flex items-center
-                       bg-gray-500 text-white
-                       hover:bg-gray-600 active:bg-gray-700
-                       dark:bg-gray-600 dark:hover:bg-gray-700 dark:active:bg-gray-800
-                       shadow-sm hover:shadow-md"
-              >
-                <i class="i-carbon-reset mr-1"></i>
-                取消标记
-              </button>
-            </div>
           </div>
         </div>
       </div>
