@@ -11,7 +11,6 @@
           记录每一期的观看记录
         </p>
       </div>
-{{currentSeason}}
       <!-- 季数选择器 -->
       <div class="mb-8 flex flex-wrap justify-center gap-4">
         <button
