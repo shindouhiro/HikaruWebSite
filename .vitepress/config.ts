@@ -72,6 +72,7 @@ export default defineConfig({
         items: [
           { text: '阅读', link: '/life/reading' },
           { text: '运动', link: '/life/running' },
+          { text: '十三邀打卡', link: '/life/thirteen-invitations' },
           { text: '观影记录', link: '/movie-collection' }
         ]
       },

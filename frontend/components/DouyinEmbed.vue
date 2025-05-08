@@ -13,26 +13,26 @@
       <div class="grid gap-8">
         <!-- 封面图卡片 -->
         <div class="card-base hover:scale-102 transition-transform duration-300">
-          <img 
-            src="https://i0.hdslb.com/bfs/openplatform/89d8570b77db20ee8b7b4c6ecd9d2a9f8c118542.png"
-            alt="组件开发封面"
+        <img 
+          src="https://i0.hdslb.com/bfs/openplatform/89d8570b77db20ee8b7b4c6ecd9d2a9f8c118542.png"
+          alt="组件开发封面"
             class="w-full h-auto object-cover rounded-t-2xl"
-          />
-        </div>
+        />
+      </div>
 
         <!-- B站视频卡片 -->
         <div class="card-base hover:scale-102 transition-transform duration-300">
           <div class="aspect-video">
-            <iframe 
-              src="//player.bilibili.com/player.html?bvid=BV19EVzzSE5r&page=1&high_quality=1&danmaku=0&autoplay=0"
-              allowfullscreen="true"
-              scrolling="no"
-              border="0"
-              frameborder="no"
-              framespacing="0"
+          <iframe 
+            src="//player.bilibili.com/player.html?bvid=BV19EVzzSE5r&page=1&high_quality=1&danmaku=0&autoplay=0"
+            allowfullscreen="true"
+            scrolling="no"
+            border="0"
+            frameborder="no"
+            framespacing="0"
               class="w-full h-full rounded-t-2xl"
-            ></iframe>
-          </div>
+          ></iframe>
+        </div>
           
           <!-- 分享按钮组 -->
           <div class="flex justify-center gap-4 p-4 bg-gray-50 dark:bg-gray-800 rounded-b-2xl ">
@@ -41,15 +41,15 @@
               分享到朋友圈
             </button>
           </div>
-        </div>
+      </div>
 
         <!-- pnpm 软链测试说明卡片 -->
         <div class="card-base">
-          <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-blue-600 dark:text-blue-400">
-            <div class="i-carbon-code" />
+        <h2 class="text-2xl font-bold mb-6 flex items-center gap-2 text-blue-600 dark:text-blue-400">
+          <div class="i-carbon-code" />
             软链测试说明
-          </h2>
-
+        </h2>
+        
           <!-- 为什么使用软链测试 -->
           <div class="mb-8 bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-900/10 dark:to-indigo-900/10 p-6 rounded-xl">
             <h3 class="text-lg font-semibold mb-4 text-blue-600 dark:text-blue-400">为什么使用软链测试？</h3>
@@ -72,14 +72,14 @@
               </li>
             </ul>
           </div>
-          
+
           <div class="space-y-6">
             <div v-for="(item, index) in pnpmSteps" :key="index" 
                  class="bg-gray-100 dark:bg-gray-800 rounded-lg p-4 hover:shadow-lg transition-shadow duration-300">
               <h3 class="font-medium mb-2 text-gray-700 dark:text-gray-300">{{ item.title }}</h3>
               <p class="text-sm text-gray-700 dark:text-gray-300 font-mono whitespace-pre-line">{{ item.command }}</p>
               <p v-if="item.description" class="mt-2 text-sm text-gray-600 dark:text-gray-400">{{ item.description }}</p>
-            </div>
+          </div>
           </div>
 
           <!-- 使用建议 -->

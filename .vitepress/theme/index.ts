@@ -22,6 +22,7 @@ import WechatShare from './components/WechatShare.vue'
 import BilibiliPlayer from './components/BilibiliPlayer.vue'
 import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
 import PackageExecutor from '../../frontend/components/PackageExecutor.vue'
+import ThirteenInvitations from '../../frontend/components/ThirteenInvitations.vue'
 import './custom.css'
 
 export default {
@@ -49,5 +50,6 @@ export default {
     app.component('BilibiliPlayer', BilibiliPlayer)
     app.component('DouyinEmbed', DouyinEmbed)
     app.component('PackageExecutor', PackageExecutor)
+    app.component('ThirteenInvitations', ThirteenInvitations)
   }
 }
