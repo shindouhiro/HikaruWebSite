@@ -120,7 +120,12 @@ env:
 ## 构建部署流程
 
 <script setup>
-document.title = 'DevOps - GitHub Actions 自动化部署';
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  document.title = 'DevOps - GitHub Actions 自动化部署'
+})
+
 const mainSteps = [
   {
     name: '代码检出',
