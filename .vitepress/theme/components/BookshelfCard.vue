@@ -183,6 +183,22 @@ const currentReading = [
     progress: 20,
     lastRead: '2025-02-15'
   },
+  {
+    id: 3,
+    title: '白先勇细说红楼梦',
+    author: '白先勇',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b5a3e8647907680738b9858869419c04c2b4c498.png',
+    progress: 0,
+    lastRead: '2025-05-11'
+  },
+  {
+    id: 4,
+    title: '刻意练习',
+    author: '安德斯·艾利克森',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/46fcecc96c4fdb852c9a9a7739c6159012e9b184.png',
+    progress: 10,
+    lastRead: '2025-05-11'
+  }
 ]
 
 const completedBooks = [
