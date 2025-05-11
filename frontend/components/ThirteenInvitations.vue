@@ -43,7 +43,7 @@
           <div class="relative overflow-hidden">
             <!-- 封面图 -->
             <img
-              :src="episode.cover"
+              :src="episode.cover || defaultCover"
               :alt="episode.title"
               class="w-[154px] h-[209px] object-cover mx-auto mt-4"
               @error="handleImageError"
@@ -65,12 +65,7 @@
             <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-1">
               {{ episode.guest }}
             </p>
-            
-            <!-- 观看日期 -->
-            <div v-if="episode.watched" class="text-sm text-gray-500 dark:text-gray-400 mb-4">
-              <i class="i-carbon-calendar mr-1"></i>
-              观看日期：{{ episode.watchDate }}
-            </div>
+          
 
           </div>
         </div>
@@ -145,8 +140,51 @@ const episodes = ref<Record<number, Episode[]>>({
       guest: '张楚',
       cover: 'https://i0.hdslb.com/bfs/openplatform/6033de28306130ae0f1a664249c1ed4645a42fc0.png',
       watched: true
-    }
+    },
+    {
+    id: '1-8',
+    title: ' 许知远对话蔡澜 ',
+    guest: '蔡澜',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/93181ca34dccab68015da8feeb51ef417e8e4894.png',
+    watched: true
+  },
+  {
+    id: '1-9',
+    title: ' 许知远对话俞飞鸿 ',
+    guest: '俞飞鸿',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/30bfe15029da88eb19230471f15b181492be5f46.png',
+    watched: true
+  },
+  {
+    id: '1-10',
+    title: '许知远对话陈嘉映',
+    guest: '陈嘉映',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b5d7ade8bff82e8aac8807688d55ff75595adb7e.png',
+    watched: true
+  },
+  {
+    id: '1-11',
+    title: '许知远对话贾樟柯',
+    guest: '贾樟柯',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/6cb598a5b45b208514587687797c1894309f5f85.png',
+    watched: true
+  },
+  {
+    id: '1-12',
+    title: '许知远对话上海彩虹室内合唱团',
+    guest: '合唱团',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '1-13',
+    title: '许知远对话白先勇',
+    guest: '白先勇',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/08db0c7d96c99c80b860b4aa30eab1e35abc82c4.png',
+    watched: true
+  }
   ],
+  
   // 更多季数...
 })
 
@@ -167,10 +205,13 @@ const markAsUnwatched = (episode: Episode) => {
   episode.watchDate = undefined
 }
 
+// 默认封面图
+const defaultCover = 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg'
+
 // 处理图片加载错误
 const handleImageError = (e: Event) => {
   const target = e.target as HTMLImageElement
-  target.src = 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg' // 默认图片
+  target.src = defaultCover
 }
 </script>
 
