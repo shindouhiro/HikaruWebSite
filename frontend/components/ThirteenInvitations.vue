@@ -45,7 +45,8 @@
             <img
               :src="episode.cover"
               :alt="episode.title"
-              class="w-full aspect-video object-cover"
+              class="w-[154px] h-[209px] object-cover mx-auto mt-4"
+              @error="handleImageError"
             />
             <!-- 观看状态标签 -->
             <div
@@ -100,37 +101,50 @@ const episodes = ref<Record<number, Episode[]>>({
       id: '1-1',
       title: '许知远对话罗振宇',
       guest: '罗振宇',
-      cover: 'https://i0.hdslb.com/bfs/article/watermark/1234567890.jpg',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8b359e8e9db3fdb39091132ca80f6fbbb1255a8e.png',
       watched: true,
-      watchDate: '2024-03-15'
     },
     {
       id: '1-2', 
-      title: '许知远对话柯文哲',
-      guest: '柯文哲',
-      cover: 'https://i0.hdslb.com/bfs/archive/7d6a20b48c9fd347dd87e3289bb87b886a94e2e3.jpg',
-      watched: false
+      title: '许知远对话姚晨',
+      guest: '姚晨',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/1fa96377efae154a861b90beacdffb6578bb81b9.png',
+      watched: true
     },
     {
       id: '1-3',
-      title: '许知远对话李诞',
-      guest: '李诞',
+      title: '许知远对话二次元',
+      guest: '二次元',
       cover: 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg', 
       watched: false
     },
     {
       id: '1-4',
-      title: '许知远对话韩寒',
-      guest: '韩寒',
-      cover: 'https://i0.hdslb.com/bfs/archive/d1e6ea6d602c603686f9a1e40bc5035e7d4d8ee0.jpg',
-      watched: false
+      title: '许知远对话冯小刚',
+      guest: '冯小刚',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/1c28c95068c8fa4a1240d6ab6382cca91b6badd1.png',
+      watched: true
     },
     {
       id: '1-5',
-      title: '许知远对话蔡康永',
-      guest: '蔡康永',
-      cover: 'https://i0.hdslb.com/bfs/archive/f9e2f78d4c8a10d1a5fa66d3d1e7b5c8a7f5e5d3.jpg',
-      watched: false
+      title: ' 许知远对话叶准 ',
+      guest: '叶准',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/67a397b83b8bbe9ce85a56760fdc191ecc9d2f0c.png',
+      watched: true
+    },
+    {
+      id: '1-6',
+      title: '许知远对话李安',
+      guest: '李安',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/002b16de14bf474750faa442b16983b2d3e0e706.png',
+      watched: true 
+    },
+    {
+      id: '1-7',
+      title: '许知远对话张楚',
+      guest: '张楚',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/6033de28306130ae0f1a664249c1ed4645a42fc0.png',
+      watched: true
     }
   ],
   // 更多季数...
@@ -151,6 +165,12 @@ const markAsWatched = (episode: Episode) => {
 const markAsUnwatched = (episode: Episode) => {
   episode.watched = false
   episode.watchDate = undefined
+}
+
+// 处理图片加载错误
+const handleImageError = (e: Event) => {
+  const target = e.target as HTMLImageElement
+  target.src = 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg' // 默认图片
 }
 </script>
 
