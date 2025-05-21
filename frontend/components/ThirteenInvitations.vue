@@ -194,11 +194,27 @@ const episodes = ref<Record<number, Episode[]>>({
     watched: true
   },
   {
+    id: '2-2',
+    title: '许知远对话诺兰',
+    guest: '诺兰',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-3',
+    title: '许知远对话蔡国强',
+    guest: '蔡国强',
+    cover: '',
+    watched: false
+  },
+
+ 
+  {
     id: '2-4',
     title: '许知远对话张艾嘉',
     guest: '张艾嘉',
     cover: 'https://i0.hdslb.com/bfs/openplatform/b4b1e9b849d937c37a3ec2def304555332b88968.png',
-    watched: true
+    watched: false
   },
   {
     id: '2-5',
@@ -213,6 +229,55 @@ const episodes = ref<Record<number, Episode[]>>({
     guest: '汪健',
     cover: 'https://i0.hdslb.com/bfs/openplatform/97c84bb4148435f0c44a9c02080d8d703dec8cac.png',
     watched: true
+  },
+  {
+    id: '2-7',
+    title: '林志玲',
+    guest: '林志玲',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-8',
+    title: '罗大佑',
+    guest: '罗大佑',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-9',
+    title: '许知远对话李诞',
+    guest: '李诞',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-10',
+    title: '许知远对话许宏',
+    guest: '许宏',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-11',
+    title: '许知远对话王小川',
+    guest: '王小川',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-12',
+    title: '许知远对话刘畅',
+    guest: '刘畅',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-13',
+    title: '许知远对话姜文',
+    guest: '蒋文',
+    cover: '',
+    watched: false
   },
   ]
   
