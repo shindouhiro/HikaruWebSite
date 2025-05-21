@@ -182,8 +182,39 @@ const episodes = ref<Record<number, Episode[]>>({
     guest: '白先勇',
     cover: 'https://i0.hdslb.com/bfs/openplatform/08db0c7d96c99c80b860b4aa30eab1e35abc82c4.png',
     watched: true
-  }
+  },
+ 
   ],
+  2: [
+  {
+    id: '2-1',
+    title: '许知远对话马东',
+    guest: '马东',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/e45f02accc978f52c23de197ad8a93b97f25e08e.png',
+    watched: true
+  },
+  {
+    id: '2-4',
+    title: '许知远对话张艾嘉',
+    guest: '张艾嘉',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b4b1e9b849d937c37a3ec2def304555332b88968.png',
+    watched: true
+  },
+  {
+    id: '2-5',
+    title: '许知远对话西川',
+    guest: '西川',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/2218102a45794545891d605ecdbc2c2efea50133.png',
+    watched: true
+  },
+  {
+    id: '2-6',
+    title: '许知远对话汪健',
+    guest: '汪健',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/97c84bb4148435f0c44a9c02080d8d703dec8cac.png',
+    watched: true
+  },
+  ]
   
   // 更多季数...
 })
