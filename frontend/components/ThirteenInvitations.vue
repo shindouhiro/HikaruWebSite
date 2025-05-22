@@ -255,29 +255,29 @@ const episodes = ref<Record<number, Episode[]>>({
     id: '2-10',
     title: '许知远对话许宏',
     guest: '许宏',
-    cover: '',
-    watched: false
+    cover: 'https://i0.hdslb.com/bfs/openplatform/43ee79f04d3e532c1f81af2467670d2496382d50.png',
+    watched: true
   },
   {
     id: '2-11',
     title: '许知远对话王小川',
     guest: '王小川',
-    cover: '',
-    watched: false
+    cover: 'https://i0.hdslb.com/bfs/openplatform/2b0d309d022362065b637cd4e8f5c03e13776bbd.png',
+    watched: true
   },
   {
     id: '2-12',
     title: '许知远对话刘畅',
     guest: '刘畅',
-    cover: '',
-    watched: false
+    cover: 'https://i0.hdslb.com/bfs/openplatform/3a319a6571b25eeb5b6cf35a6b36e4ff8b02ead1.png',
+    watched: true
   },
   {
     id: '2-13',
     title: '许知远对话姜文',
-    guest: '蒋文',
-    cover: '',
-    watched: false
+    guest: '姜文',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/3a6cb44afdb36f9f5c9407f5895e63be58e195f9.png',
+    watched: true
   },
   ]
   
