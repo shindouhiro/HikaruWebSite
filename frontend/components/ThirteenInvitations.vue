@@ -279,6 +279,99 @@ const episodes = ref<Record<number, Episode[]>>({
     cover: 'https://i0.hdslb.com/bfs/openplatform/3a6cb44afdb36f9f5c9407f5895e63be58e195f9.png',
     watched: true
   },
+  ],
+  8: [
+    {
+      id: '8-1',
+      title: '许知远对话许倬云',
+      guest: '许倬云',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8754ffa6721efb1e9bad2d233f36c8c2bddfedce.png',
+      watched: true
+    },
+    {
+      id: '8-2',
+      title: '许知远对话谭元元',
+      guest: '谭元元',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/e793593a6b89c3dfbc8dfddb492baa3d7323f274.png',
+      watched: false
+    },
+    {
+      id: '8-3',
+      title: '许知远对话陈年喜',
+      guest: '陈年喜',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/07deb91de213f21ce9468e1ca3eec4399ed2a2bf.png',
+      watched: false
+    },
+    {
+      id: '8-4',
+      title: '许知远对话梁建章',
+      guest: '梁建章',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/799da4ce08cab3d2abdfb2f84d25a7146bc9b6bb.png',
+      watched: false
+    },
+    {
+      id: '8-5',
+      title: '许知远对话曾孝濂',
+      guest: '曾孝濂',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/7cc92dc8b747e5de5ac1d7e445e7d0ce7fb4cbe9.png',
+      watched: false
+    },
+    {
+      id: '8-6',
+      title: '许知远对话林小英',
+      guest: '林小英',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/d079e0a489b393c42a7c67bbd970d88c4252fb57.png',
+      watched: true
+    },
+    {
+      id: '8-7',
+      title: '许知远对话桑德尔',
+      guest: '桑德尔',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8e6776172968144b55c53c23373511debaf8dc7b.png',
+      watched: true
+    },
+    {
+      id: '8-8',
+      title: '许知远对话陈东升',
+      guest: '陈东升',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/acdb389ece7ba88a3908b7a957536bde1696d835.png',
+      watched: false
+    },
+    {
+      id: '8-9',
+      title: '许知远对话田连元',
+      guest: '田连元',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/211512846fe2083764f43e16de60eb08263c377f.png',
+      watched: false
+    },
+    {
+      id: '8-10',
+      title: '许知远对话村上隆',
+      guest: '村上隆',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/b827e2d389b6583bcf5daa8472f13148977b59ed.png',
+      watched: false
+    },
+    {
+      id: '8-11',
+      title: '许知远对话咏梅',
+      guest: '咏梅',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/27b0206792aa9ac64f7ff3ffb876fb27146b4b9a.png',
+      watched: false
+    },
+    {
+      id: '8-12',
+      title: '许知远对话伍迪艾伦',
+      guest: '伍迪艾伦',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/02a69ae7e1801e9238e27906769f914adb2b7872.png',
+      watched: false
+    },
+    {
+      id: '8-13',
+      title: '许知远对话珍古道尔',
+      guest: '珍古道尔',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/67e705ab907d1e2e6dba62051a3b6e84cb64c552.png',
+      watched: false
+    }
   ]
   
   // 更多季数...
