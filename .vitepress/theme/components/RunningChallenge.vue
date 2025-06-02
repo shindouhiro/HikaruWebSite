@@ -247,7 +247,7 @@ import { useData } from "vitepress";
 const { site } = useData();
 
 // 示例数据
-const completedDays = 6;
+const completedDays = 7;
 const totalDistance = 5;
 const currentStreak = 2;
 const averagePace = "5'30";
@@ -321,6 +321,14 @@ const recentRecords = [
     distance: "5.0",
     pace: "6'10",
     duration: "31:03",
+  },
+  {
+    day: 7,
+    date: "2025-6-02",
+    time: "21:30",
+    distance: "5.0",
+    pace: "6'00",
+    duration: "30:21",
   }
 ];
 
@@ -416,6 +424,17 @@ const runningData = {
     image:
      "https://i0.hdslb.com/bfs/article/74d3358535668cf221fa43e73ad6831916643837.jpg",
     note: "恢复跑步的第六天",
+  },
+  7: {
+    completed: true,
+    date: "2025-06-2",
+    distance: "5.0",
+    pace: "6'14",
+    duration: "31:28",
+    image:
+     "https://i0.hdslb.com/bfs/openplatform/96291e2b14bf96ec1cff87f40716f7adb63939d9.jpg",
+    note: "恢复跑步的第七天",
+
   }
 };
 
