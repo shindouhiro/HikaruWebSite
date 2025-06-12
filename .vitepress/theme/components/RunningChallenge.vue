@@ -343,6 +343,16 @@ const runningData: RunningData = {
       "https://i0.hdslb.com/bfs/openplatform/a8f49ab4defb6e9eb19340f67f26fb80ad4886b5.jpg",
     note: "恢复跑步第九天",
   },
+  10: {
+    completed: true,
+    date: "2025-06-10",
+    distance: "5.0",
+    pace: "6'55",
+    duration: "34:52",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/67838a461901ec17209fd7a3c02e97ccf2b70810.jpg",
+    note: "恢复跑步第十天",
+  },
 };
 
 // --- Computed properties ---
