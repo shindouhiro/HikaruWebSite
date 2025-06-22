@@ -353,6 +353,26 @@ const runningData: RunningData = {
       "https://i0.hdslb.com/bfs/openplatform/67838a461901ec17209fd7a3c02e97ccf2b70810.jpg",
     note: "恢复跑步第十天",
   },
+  11: {
+    completed: true,
+    date: "2025-06-18",
+    distance: "5.0",
+    pace: "6'06",
+    duration: "30:50",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/d399534d7ddd95a3c00ba14a664051021a1e935a.jpg",
+    note: "恢复跑步第十一天",
+  },
+  12: {
+    completed: true,
+    date: "2025-06-22",
+    distance: "5.0",
+    pace: "6'00",
+    duration: "30:16",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/c437d09a274f3e3e9a2861d9bf7fad3bac60cbba.jpg",
+    note: "恢复跑步第十二天",
+  },
 };
 
 // --- Computed properties ---
