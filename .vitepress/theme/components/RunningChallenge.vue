@@ -63,8 +63,9 @@
               class="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-teal-500/10 border border-blue-500/20 dark:border-blue-500/30"
             >
               <div class="text-lg font-bold text-blue-500">
-                {{ totalDistance }}km
+                {{ totalDistance }}
               </div>
+              <div>km</div>
               <div class="text-sm text-gray-600 dark:text-gray-400">总里程</div>
             </div>
             <div
