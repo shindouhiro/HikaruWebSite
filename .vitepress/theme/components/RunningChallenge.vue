@@ -177,22 +177,57 @@
         <div
           v-if="showModal"
           class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto"
-          @click="showModal = false"
+          @click="closeModal"
         >
           <div
             class="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 max-w-lg w-full mx-4 shadow-xl"
             @click.stop
           >
             <div class="flex justify-between items-center mb-4">
-              <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">
-                第 {{ selectedDay }} 天
-              </h3>
-              <button
-                @click="showModal = false"
-                class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-              >
-                <div class="i-carbon-close text-xl" />
-              </button>
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">
+                  第 {{ selectedDay }} 天
+                </h3>
+                <span 
+                  v-if="getDayStatus(selectedDay).completed"
+                  class="px-2 py-1 text-xs bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full"
+                >
+                  已完成
+                </span>
+                <span 
+                  v-else
+                  class="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400 rounded-full"
+                >
+                  未完成
+                </span>
+              </div>
+              <div class="flex items-center gap-2">
+                <!-- 左箭头 -->
+                <button
+                  v-if="hasPreviousDay"
+                  @click="previousDay"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  title="上一天"
+                >
+                  <div class="i-carbon-arrow-left text-xl" />
+                </button>
+                <!-- 右箭头 -->
+                <button
+                  v-if="hasNextDay"
+                  @click="nextDay"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  title="下一天"
+                >
+                  <div class="i-carbon-arrow-right text-xl" />
+                </button>
+                <!-- 关闭按钮 -->
+                <button
+                  @click="closeModal"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                >
+                  <div class="i-carbon-close text-xl" />
+                </button>
+              </div>
             </div>
 
             <div v-if="getDayStatus(selectedDay).completed">
@@ -243,20 +278,16 @@
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, computed } from "vue";
-import { useData } from "vitepress";
-import type { RunningRecord, RunningData } from '../types';
-import { parsePaceToSeconds, formatSecondsToPace, diffInDays } from '../utils';
-
-// 获取 VitePress 数据
-const { site } = useData();
-
-// 弹窗控制
-const showModal = ref(false);
-const selectedDay = ref(1);
+import { 
+  useModal, 
+  useKeyboard, 
+  useShare, 
+  usePageTitle, 
+  useRunningStats 
+} from '../hooks'
 
 // 打卡数据
-const runningData: RunningData = {
+const runningData = {
   1: {
     completed: true,
     date: "2025-03-10",
@@ -374,136 +405,44 @@ const runningData: RunningData = {
       "https://i0.hdslb.com/bfs/openplatform/c437d09a274f3e3e9a2861d9bf7fad3bac60cbba.jpg",
     note: "恢复跑步第十二天",
   },
-};
-
-// --- Computed properties ---
-const allRecords = computed(() => {
-  return Object.entries(runningData).map(([day, data]) => ({
-    day: parseInt(day),
-    ...data,
-  }));
-});
-
-const completedRecords = computed(() => {
-  return allRecords.value
-    .filter((record) => record.completed)
-    .sort((a, b) => a.day - b.day);
-});
-
-// Stats
-const completedDays = computed(() => completedRecords.value.length);
-
-const totalDistance = computed(() => {
-  return completedRecords.value
-    .reduce((total, record) => {
-      return total + (parseFloat(record.distance) || 0);
-    }, 0)
-    .toFixed(1);
-});
-
-const averagePace = computed(() => {
-  const validPaces = completedRecords.value.filter((r) => r.pace);
-  if (validPaces.length === 0) return "0'00\"";
-  const totalSeconds = validPaces.reduce((total, record) => {
-    return total + parsePaceToSeconds(record.pace);
-  }, 0);
-  return formatSecondsToPace(totalSeconds / validPaces.length);
-});
-
-const currentStreak = computed(() => {
-  if (completedRecords.value.length === 0) return 0;
-
-  const sortedByDate = [...completedRecords.value].sort(
-    (a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()
-  );
-
-  if (sortedByDate.length <= 1) return sortedByDate.length;
-
-  let streak = 1;
-  for (let i = 0; i < sortedByDate.length - 1; i++) {
-    const currentRunDate = new Date(sortedByDate[i].date);
-    const previousRunDate = new Date(sortedByDate[i + 1].date);
-    if (diffInDays(previousRunDate, currentRunDate) === 1) {
-      streak++;
-    } else {
-      break;
-    }
-  }
-  return streak;
-});
-
-const recentRecords = computed(() => {
-  return completedRecords.value
-    .slice(-5)
-    .sort((a, b) => b.day - a.day)
-    .map((record: RunningRecord) => ({
-      ...record,
-      duration: record.duration || "N/A",
-    }));
-});
-
-// 设置页面标题
-const pageTitle = computed(
-  () => `100天5km跑步挑战 - 已完成${completedDays.value}天`
-);
-const updateTitle = () => {
-  // 更新浏览器标题
-  document.title = `${pageTitle.value} | ${site.value.title}`;
-};
-
-// 在组件挂载时更新标题
-onMounted(() => {
-  updateTitle();
-});
-
-// 监听完成天数变化，动态更新标题
-watch(
-  () => completedDays.value,
-  () => {
-    updateTitle();
-  }
-);
-
-// 分享功能
-const shareToWeChat = () => {
-  // 生成要分享的URL
-  const shareUrl = window.location.href;
-  const shareTitle = `100天5km跑步挑战,已完成${completedDays.value}天`;
-  const shareDesc = `已完成${completedDays.value}天，总距离${totalDistance.value}km！一起来挑战吧！`;
-
-  // 使用原生分享API（如果支持）
-  if (navigator.share) {
-    navigator.share({
-      title: shareTitle,
-      text: shareDesc,
-      url: shareUrl,
-    });
-  } else {
-    // 如果不支持，则显示二维码或复制链接
-    // 这里可以使用第三方库生成二维码
-    alert("请长按链接进行分享：" + shareUrl);
-  }
-};
-
-const shareToWeibo = () => {
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent(
-    `我正在参与100天5km跑步挑战！已完成${completedDays.value}天，总距离${totalDistance.value}km！一起来挑战吧！`
-  );
-  const weiboShareUrl = `http://service.weibo.com/share/share.php?url=${shareUrl}&title=${shareTitle}`;
-  window.open(weiboShareUrl, "_blank");
-};
-
-// 获取某天的状态
-function getDayStatus(day) {
-  return runningData[day] || { completed: false };
 }
 
-// 显示某天的详情
-function showDayDetail(day) {
-  selectedDay.value = day;
-  showModal.value = true;
-}
+// 使用hooks
+const {
+  showModal,
+  selectedDay,
+  getDayStatus,
+  showDayDetail,
+  previousDay,
+  nextDay,
+  hasPreviousDay,
+  hasNextDay,
+  closeModal
+} = useModal(runningData)
+
+const {
+  completedDays,
+  totalDistance,
+  averagePace,
+  currentStreak,
+  recentRecords
+} = useRunningStats(runningData)
+
+const { shareToWeChat, shareToWeibo } = useShare({
+  completedDays,
+  totalDistance,
+  pageUrl: window.location.href
+})
+
+usePageTitle({ completedDays })
+
+// 键盘事件处理
+useKeyboard({
+  onArrowLeft: previousDay,
+  onArrowRight: nextDay,
+  onEscape: closeModal,
+  isEnabled: () => showModal.value
+})
 </script>
 
 <style scoped>
