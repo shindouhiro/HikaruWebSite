@@ -415,6 +415,16 @@ const runningData = {
       "https://i0.hdslb.com/bfs/openplatform/516f9042791c9e1f198201b3d32d1b4926a232f8.jpg",
     note: "恢复跑步第十三天",
   },
+  14: {
+   completed: true,
+   date: "2025-06-24",
+   distance: "5.0",
+   pace: "6'15",
+   duration: "33:34",
+   image:
+     "https://i0.hdslb.com/bfs/openplatform/8d0c6e5658655076e26816febc8a7fbce8a5ebdf.jpg",
+   note: "恢复跑步第十四天",
+  }
 }
 
 // 使用hooks
