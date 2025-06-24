@@ -113,10 +113,10 @@ const modules = ref([
   {
     title: '组件系统',
     tasks: [
-      { name: '实现 组件挂载', completed: false },
-      { name: '实现 组件更新', completed: false },
-      { name: '实现 props', completed: false },
-      { name: '实现 emit', completed: false }
+      { name: '实现 组件挂载', completed: true },
+      { name: '实现 组件更新', completed: true },
+      { name: '实现 props', completed: true },
+      { name: '实现 emit', completed: true }
     ],
     notes: '',
     lastUpdated: null
