@@ -63,9 +63,22 @@ export default defineConfig({
               { text: 'NPM 包发布指南', link: '/frontend/npm-publish' },
               { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
               { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' },
-              { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' }
+              { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
+              { text: 'VSCode SVG Icon 插件实践', link: '/frontend/vscode-svg-icon-plugin' }
             ]
           }
+        ]
+      },
+      {
+        text: '项目',
+        items: [
+          {
+            text: 'VSCode 插件',
+            items: [
+              { text: '🧩 SVG 预览', link: '/projects/vscode-plugin-svg-preview' }
+            ]
+          }
+          // 可继续添加更多项目子菜单项
         ]
       },
       {
