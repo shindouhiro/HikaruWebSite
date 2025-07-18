@@ -285,6 +285,7 @@ import {
   usePageTitle, 
   useRunningStats 
 } from '../hooks'
+import { ref, onMounted } from 'vue'
 
 // 打卡数据
 const runningData = {
@@ -478,10 +479,15 @@ const {
   recentRecords
 } = useRunningStats(runningData)
 
+const pageUrl = ref('')
+onMounted(() => {
+  pageUrl.value = window.location.href
+})
+
 const { shareToWeChat, shareToWeibo } = useShare({
   completedDays,
   totalDistance,
-  pageUrl: window.location.href
+  pageUrl
 })
 
 usePageTitle({ completedDays })
