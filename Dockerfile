@@ -16,6 +16,6 @@ RUN chmod 644 /etc/nginx/cert/shindou.icu.pem \
     && chmod 600 /etc/nginx/cert/shindou.icu.key
 
 # 暴露 HTTP 和 HTTPS 端口
-EXPOSE 80 443
+EXPOSE 80 443 3000
 
 CMD ["nginx", "-g", "daemon off;"] 
