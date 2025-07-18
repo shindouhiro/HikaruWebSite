@@ -217,6 +217,14 @@ const completedBooks = [
     cover: 'https://i0.hdslb.com/bfs/article/6df8f906d042a01cad35460faffac8de16643837.png',
     tags: ['传记'],
     completedDate: '2025-4-15'
+  },
+  {
+    id: 5,
+    title: '我的二本学生',
+    author: '黄灯',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/c1429ce7041ac10275e4296a80f268deb17a969e.png',
+    progress: 50,
+    lastRead: '2025-07-18'
   }
 ]
 
