@@ -55,6 +55,7 @@ export default defineConfig({
             text: 'DevOps',
             items: [
               { text: 'GitHub Actions', link: '/devops/github-actions' },
+              {text: 'Jenkins自动化部署', link: '/devops/jenkins'}
             ]
           },
           {
