@@ -67,6 +67,12 @@ export default defineConfig({
               { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
               { text: 'VSCode SVG Icon 插件实践', link: '/frontend/vscode-svg-icon-plugin' }
             ]
+          },
+          {
+            text: 'Cursor',
+            items: [
+              {text: '解决Claude模型被封', link: '/cursor/claude-model'}
+            ]
           }
         ]
       },
