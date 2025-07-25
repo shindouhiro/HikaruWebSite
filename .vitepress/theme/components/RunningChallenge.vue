@@ -484,7 +484,6 @@ const runningData = {
     duration: "28:53",
     image:
       "https://i0.hdslb.com/bfs/openplatform/f2c202c5e765950ab15adba48187229599785742.jpg",
-    note: "恢复跑步第二十天",
   }
 }
 
