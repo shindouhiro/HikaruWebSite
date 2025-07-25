@@ -1,4 +1,32 @@
 ## Jenkins
+## Docker安装Jenkins
++ 配置docker-compose.yml
+```bash
+version: "3.8"
+services:
+  jenkins:
+    user: root
+    image: jenkins/jenkins:lts
+    container_name: jenkins
+    ports:
+      - "8080:8080"
+      - "50000:50000"
+    volumes:
+      - /var/jenkins_home:/var/jenkins_home
+      - /var/run/docker.sock:/var/run/docker.sock
+      - /usr/bin/docker:/usr/bin/docker
+    restart: unless-stopped
+```
++ 启动 
+```bash
+docker-compose up -d
+```
++ 飞牛识别了我Jenkins
+![](https://i0.hdslb.com/bfs/openplatform/236e7b26726f2f1fc0a9cce342c36781f891251d.png@1e_1c.webp)
+
++ Jenkins部署流程
+![](https://i0.hdslb.com/bfs/openplatform/b7421fdc4df1f99563faf90ca92ad19bd1b475f0.png@1e_1c.webp)
+
 ## Github webhook 触发jenkins构建
 ![触发](https://i0.hdslb.com/bfs/openplatform/8f0fb2a417957e5e6463425d86eedcc231b0434a.png)
 ## 通过中转触发流程
