@@ -7,7 +7,15 @@
 - 配合 **Iconify IntelliSense 插件**，可以在编辑器中**实时预览 SVG 图标效果**，极大提升了开发体验和效率！
 
 ✨ **推荐：Iconify 让你的图标管理更简单、更高效！**
-## Iconify
+
+## 📋 目录导航
+
+- [🎯 Iconify 核心特性](#iconify-核心特性)
+- [📦 使用 Iconify API 生成 JSON 文件](#使用-iconify-api-生成-json-文件)
+- [🔧 安装配置 Iconify IntelliSense 插件](#安装配置-iconify-intellisense-插件)
+- [⚙️ VSCode 设置配置](#vscode-设置配置)
+- [👀 编辑器预览效果](#编辑器预览效果)
+## 🎯 Iconify 核心特性
 1. **统一图标管理**：Iconify 提供了一个统一的平台，支持从多个图标库（如 Material Icons、Font Awesome、Tabler Icons 等）中获取和使用图标，无需单独引入不同的图标字体或文件。
 2. **按需加载**：Iconify 允许开发者按需加载图标，仅加载页面中实际使用的图标，减少资源加载，提升性能。
 3. **SVG 图标支持**：Iconify 使用 SVG 格式的图标，确保图标在不同分辨率下保持清晰，且支持动态修改样式（如颜色、大小等）。
@@ -15,7 +23,7 @@
 5. **动态加载与 CDN**：通过 Iconify 的 CDN 或 API，开发者可以动态加载图标，无需本地存储大量图标文件，简化项目维护。
 6. **图标定制与优化**：支持自定义图标集，开发者可以上传自己的 SVG 图标，并通过 Iconify 的工具进行优化和使用。
 
-### 使用Iconify Api生成JSON文件
+## 📦 使用 Iconify API 生成 JSON 文件
 
 ```json
 {
@@ -44,11 +52,13 @@
 }
 ```
 
-### 安装插件 Iconify IntelliSense实现在编辑器预览
-+ 插件默认是cdn地址和node_modules寻找json文件
-+ 如果自己打包的json文件需要手动配置编辑器的setting.json
+## 🔧 安装配置 Iconify IntelliSense 插件
++ 插件默认从 CDN 地址和 node_modules 寻找 JSON 文件
++ 如果自己打包的 JSON 文件需要手动配置编辑器的 setting.json
 
-+ setting.json
+## ⚙️ VSCode 设置配置
+
+### setting.json 配置示例
 ```json
   "iconify.annotations": true,
   "iconify.inplace": true,
@@ -63,7 +73,9 @@
 5. `iconify.delimiters: [":"]`：定义分隔符为冒号，用于解析 `集合名:图标名` 的格式。
 6. `iconify.customCollectionJsonPaths`：指定自定义图标集合 JSON 文件的绝对路径，插件会从该路径加载图标数据。
 
-### 配置好后便可以在编辑器直接预览svg
+## 👀 编辑器预览效果
+
+### 配置完成后即可在编辑器中直接预览 SVG 图标
 ![](https://i0.hdslb.com/bfs/openplatform/9fac61a6cec4dfe9a9740f4ef7253af3d0c223ea.png@1e_1c.webp)
 
 
