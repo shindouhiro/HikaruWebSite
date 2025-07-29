@@ -65,7 +65,7 @@ export default defineConfig({
               { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
               { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' },
               { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
-              { text: 'VSCode SVG Icon 插件实践', link: '/frontend/vscode-svg-icon-plugin' }
+              { text: '高效批量管理自定义 SVG 图标最佳实践', link: '/frontend/vscode-svg-icon-plugin' }
             ]
           },
           {
