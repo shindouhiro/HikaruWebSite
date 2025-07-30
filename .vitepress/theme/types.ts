@@ -5,7 +5,7 @@ export interface RunningRecord {
   pace: string;
   duration?: string;
   image: string;
-  note: string;
+  note?: string;
   day?: number;
 }
 

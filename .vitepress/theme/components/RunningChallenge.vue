@@ -484,8 +484,18 @@ const runningData = {
     duration: "28:53",
     image:
       "https://i0.hdslb.com/bfs/openplatform/f2c202c5e765950ab15adba48187229599785742.jpg",
+  },
+  21: {
+    completed: true,
+    date: "2025-07-29",
+    distance: "5.0",
+    pace: "5'51",
+    duration: "29:28",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/c41bd495a03ac086eeefbbc41c1e8f81913c1b61.jpg",
   }
 }
+
 
 // 使用hooks
 const {
