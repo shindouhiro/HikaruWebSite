@@ -69,9 +69,10 @@ export default defineConfig({
             ]
           },
           {
-            text: 'Cursor',
+            text: 'AI',
             items: [
-              {text: '解决Claude模型被封', link: '/cursor/claude-model'}
+              {text: '解决Cursor Claude模型被封', link: '/ai/claude-model'},
+              {text: 'ROO CODE集成模型', link: '/ai/roocode'}
             ]
           }
         ]
