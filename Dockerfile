@@ -4,7 +4,10 @@ FROM nginx:alpine
 COPY .vitepress/dist /usr/share/nginx/html
 
 # 复制 Nginx 配置
-COPY nginx.conf /etc/nginx/conf.d/default.conf
+# COPY nginx.conf /etc/nginx/conf.d/default.conf
+
+# 复制简化的 Nginx 配置用于测试
+COPY nginx-test.conf /etc/nginx/conf.d/default.conf
 
 # 创建证书目录并复制证书文件
 # RUN mkdir -p /etc/nginx/cert
