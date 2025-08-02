@@ -7,15 +7,15 @@ COPY .vitepress/dist /usr/share/nginx/html
 COPY nginx.conf /etc/nginx/conf.d/default.conf
 
 # 创建证书目录并复制证书文件
-RUN mkdir -p /etc/nginx/cert
-COPY cert/shindou.icu.pem /etc/nginx/cert/
-COPY cert/shindou.icu.key /etc/nginx/cert/
+# RUN mkdir -p /etc/nginx/cert
+# COPY cert/shindou.icu.pem /etc/nginx/cert/
+# COPY cert/shindou.icu.key /etc/nginx/cert/
 
 # 设置证书文件权限
-RUN chmod 644 /etc/nginx/cert/shindou.icu.pem \
-    && chmod 600 /etc/nginx/cert/shindou.icu.key
+# RUN chmod 644 /etc/nginx/cert/shindou.icu.pem \
+#     && chmod 600 /etc/nginx/cert/shindou.icu.key
 
 # 暴露 HTTP 和 HTTPS 端口
-EXPOSE 80 443 3000
+EXPOSE 80 
 
 CMD ["nginx", "-g", "daemon off;"] 
