@@ -1,24 +1,24 @@
-# ROOCODE：魔塔社区 AI 编程助手配置指南
+# RooCode：魔塔社区 AI 编程助手配置指南
 
 > **快速配置魔塔社区 AI 编程助手，提升开发效率！**\
-> **🎁 每日免费额度：2000 token！**
+> **🎁 每日免费额度：2000次**
 
-ROOCODE 是一款基于魔塔社区 API 的 AI 编程助手插件，能够帮助开发者在编辑器中直接使用 AI 进行代码生成、调试和优化。本指南将详细介绍如何从零开始配置 ROOCODE 插件。
+RooCode 是一款基于魔塔社区 API 的 AI 编程助手插件，能够帮助开发者在编辑器中直接使用 AI 进行代码生成、调试和优化。本指南将详细介绍如何从零开始配置 RooCode 插件。
 
 ## 📋 目录导航
 
-*   [🎯 ROOCODE 简介](#roocode-简介)
+*   [🎯 RooCode 简介](#RooCode-简介)
 *   [🔧 安装配置步骤](#安装配置步骤)
-    *   [📦 第一步：安装 ROOCODE 插件](#第一步安装-roocode-插件)
+    *   [📦 第一步：安装 RooCode 插件](#第一步安装-RooCode-插件)
     *   [🔑 第二步：获取 API Key](#第二步获取-api-key)
     *   [⚙️ 第三步：配置 API 设置](#第三步配置-api-设置)
     *   [🧪 第四步：测试连接](#第四步测试连接)
 *   [✨ 使用效果展示](#使用效果展示)
 *   [🔗 相关资源与扩展](#相关资源与扩展)
 
-## 🎯 ROOCODE 简介
+## 🎯 RooCode 简介
 
-ROOCODE 是基于魔塔社区 API 的智能编程助手，具有以下特性：
+RooCode 是基于魔塔社区 API 的智能编程助手，具有以下特性：
 
 *   🤖 **AI 代码生成**：根据注释和需求自动生成代码
 *   🔍 **智能代码分析**：分析代码逻辑并提供优化建议
@@ -28,23 +28,23 @@ ROOCODE 是基于魔塔社区 API 的智能编程助手，具有以下特性：
 
 ## 🔧 安装配置步骤
 
-### 📦 第一步：安装 ROOCODE 插件
+### 📦 第一步：安装 RooCode 插件
 
-在编辑器中安装 ROOCODE 插件：
-
-![安装 ROOCODE 插件](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/68496eb4d3b74071bcd7d62136a64528~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=%2BWXamymodujm7rk1RCn2dmbuSCI%3D)
+在编辑器中安装 RooCode 插件：
+![安装 RooCode 插件](https://i0.hdslb.com/bfs/openplatform/07aa9e7a105f8629e4687cb7dc61d32d2f4e3ab6.png@1e_1c.webp)
 
 **操作说明**：
 
 1.  打开编辑器扩展市场
-2.  搜索 "ROOCODE"
+2.  搜索 "RooCode"
 3.  点击安装并重启编辑器
 
 ### 🔑 第二步：获取 API Key
 
 在魔塔社区获取授权 API Key：
 
-![获取 API Key](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/ba81183a1adf46daa9fc5e5e9aa86443~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=obOQyx0Q2u5oV0KbJAVSZMw5oQ0%3D)
+![获取 API Key](https://i0.hdslb.com/bfs/openplatform/1f89e377fbe46d88ba86a90fe1a990a3aa3c8985.png@1e_1c.webp)
+
 
 **操作步骤**：
 
@@ -55,7 +55,7 @@ ROOCODE 是基于魔塔社区 API 的智能编程助手，具有以下特性：
 
 ### ⚙️ 第三步：配置 API 设置
 
-配置 ROOCODE 的 API 连接设置：
+配置 RooCode 的 API 连接设置：
 
 ```bash
 # API 基础 URL
@@ -65,30 +65,27 @@ url: https://api-inference.modelscope.cn/v1/
 model: Qwen/Qwen3-Coder-480B-A35B-Instruct
 ```
 
-![配置 API 设置](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/cb25ec6dd9994fa68f40da828b983495~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=Y1Z5j%2Fj7ewHWJjq9xbOutHGYr9k%3D)
+![配置 API 设置](https://i0.hdslb.com/bfs/openplatform/a977bf6098a14769dd192fcb7f431d5d22f0b8f9.png@1e_1c.webp)
 
 **配置说明**：
 
 *   **API URL**：使用魔塔社区的推理 API 地址
 *   **API Key**：填入从魔塔社区获取的密钥
 *   **模型选择**：推荐使用 `Qwen/Qwen3-Coder-480B-A35B-Instruct` 模型，专为代码生成优化
-*   **免费额度**：每日可使用 2000 token
+*   **免费额度**：每日可使用 2000次
 
 ### 🧪 第四步：测试连接
 
 验证配置是否正确：
 
-![测试连接 1](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/b6b8920e476b4e17ae19a64fae0a6972~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=DJEkIiEtGRIFqg9ud18KUpUxAro%3D)
-
-![测试连接 2](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/da7f253a8c90452c98f6058eaafc1c72~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=SCgb4ExBTyfeiTU6DDjBODGRorU%3D)
-
-![测试连接 3](https://p0-xtjj-private.juejin.cn/tos-cn-i-73owjymdk6/f4a4f0d94b114c9f9130a0cceb0e66f3~tplv-73owjymdk6-jj-mark-v1:0:0:0:0:5o6Y6YeR5oqA5pyv56S-5Yy6IEAg6LaF57qn5LiN5oOz5LiK54-t:q75.awebp?policy=eyJ2bSI6MywidWlkIjoiNDQ4MjU2NDcyNTI4ODIzIn0%3D&rk3s=f64ab15b&x-orig-authkey=f32326d3454f2ac7e96d3d06cdbb035152127018&x-orig-expires=1754563768&x-orig-sign=CcNdll2yBXzZdRZ%2BSFSovfVd6e0%3D)
+![验证](https://i0.hdslb.com/bfs/openplatform/c5b8f5cc5c114d7e06234c446415d44cef7a9931.png@1e_1c.webp)
+![验证](https://i0.hdslb.com/bfs/openplatform/0ee104d9cea2f9746dd57aa2883827f242252e44.png@1e_1c.webp)
 
 **测试步骤**：
 
 1.  在编辑器中打开任意代码文件
 2.  选中代码或输入注释
-3.  使用快捷键调用 ROOCODE
+3.  使用快捷键调用 RooCode
 4.  验证 AI 响应是否正常
 
 ## ✨ 使用效果展示
@@ -108,12 +105,12 @@ model: Qwen/Qwen3-Coder-480B-A35B-Instruct
 ### 📖 官方文档与教程
 
 *   **[🤖 Qwen CLI 集成教程](https://mp.weixin.qq.com/s/y8p-5dSKSN2zwrwYRA59cQ)** - 了解如何通过命令行使用 Qwen 模型
-*   **[📚 ROOCODE 集成智普 AI 官方文档](https://docs.bigmodel.cn/cn/guide/develop/roo#roo-code)** - 官方集成指南和最佳实践
+*   **[📚 RooCode 集成智普 AI 官方文档](https://docs.bigmodel.cn/cn/guide/develop/roo#roo-code)** - 官方集成指南和最佳实践
 
 ### 💡 使用建议
 
 *   🎯 **模型选择**：优先使用 `Qwen/Qwen3-Coder-480B-A35B-Instruct` 模型，专为代码生成优化
-*   💰 **成本控制**：充分利用每日 2000 token 免费额度
+*   💰 **成本控制**：充分利用每日 2000次 免费额度
 *   🔄 **定期更新**：关注官方文档获取最新的模型和功能更新
 *   🛠️ **多模型对比**：可以尝试不同模型找到最适合的开发场景
 

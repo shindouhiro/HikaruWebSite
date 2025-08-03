@@ -45,6 +45,12 @@ export default defineConfig({
               { text: 'Tmux', link: '/tools/terminal/tmux' },
               { text: 'Yazi', link: '/tools/compatible/yazi' }
             ]
+          },
+          {
+            text: '在线工具',
+            items: [
+              { text: 'MD2Card', link: '/tools/plugins/mdcard' }
+            ]
           }
         ]
       },
@@ -73,7 +79,7 @@ export default defineConfig({
             text: 'AI',
             items: [
               {text: '解决Cursor Claude模型被封', link: '/ai/claude-model'},
-              {text: 'ROO CODE集成模型', link: '/ai/roocode'}
+              {text: 'Roo Code集成模型', link: '/ai/roocode'}
             ]
           }
         ]
