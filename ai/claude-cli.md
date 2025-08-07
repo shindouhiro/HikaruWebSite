@@ -34,6 +34,13 @@ npm install -g @musistudio/claude-code-router
 
 ### ⚙️ 配置
 
+- **api_key**: 添加你的 API 密钥
+- **models**: 支持的模型列表
+- **transformer**: 模型转换器配置
+- **Router**: 路由配置，设置默认模型
+
+</div>
+
 创建配置文件 `~/.claude-code-router/config.json`：
 
 ```json
@@ -69,14 +76,7 @@ npm install -g @musistudio/claude-code-router
 }
 ```
 
-### 🔧 配置说明
 
-- **api_key**: 添加你的 API 密钥
-- **models**: 支持的模型列表
-- **transformer**: 模型转换器配置
-- **Router**: 路由配置，设置默认模型
-
-</div>
 
 <div class="install-section">
 
