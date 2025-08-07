@@ -79,7 +79,8 @@ export default defineConfig({
             text: 'AI',
             items: [
               {text: '解决Cursor Claude模型被封', link: '/ai/claude-model'},
-              {text: 'Roo Code集成模型', link: '/ai/roocode'}
+              {text: 'Roo Code集成模型', link: '/ai/roocode'},
+              {text: 'Crush终端连接LLM', link: '/ai/crush'}
             ]
           }
         ]

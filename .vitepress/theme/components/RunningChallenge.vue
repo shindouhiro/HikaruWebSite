@@ -493,6 +493,16 @@ const runningData = {
     duration: "29:28",
     image:
       "https://i0.hdslb.com/bfs/openplatform/c41bd495a03ac086eeefbbc41c1e8f81913c1b61.jpg",
+  },
+  22: {
+    completed: true,
+    date: "2025-08-03",
+    distance: "5.0",
+    pace: "5'55",
+    duration: "29:50",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/ea427fd47fffe148a7b0db0e91b4f56ae392eb80.jpg",
+    note: "恢复跑步第二十二天",
   }
 }
 
