@@ -24,6 +24,7 @@ import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
 import PackageExecutor from '../../frontend/components/PackageExecutor.vue'
 import ThirteenInvitations from '../../frontend/components/ThirteenInvitations.vue'
 import MiniVueProgress from '../../components/MiniVueProgress.vue'
+import WebSitesShowcase from './components/WebSitesShowcase.vue'
 import './custom.css'
 
 export default {
@@ -53,5 +54,6 @@ export default {
     app.component('PackageExecutor', PackageExecutor)
     app.component('ThirteenInvitations', ThirteenInvitations)
     app.component('MiniVueProgress', MiniVueProgress)
+    app.component('WebSitesShowcase', WebSitesShowcase)
   }
 }

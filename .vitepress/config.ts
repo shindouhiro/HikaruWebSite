@@ -94,6 +94,12 @@ export default defineConfig({
             items: [
               { text: '🧩 SVG 预览', link: '/projects/vscode-plugin-svg-preview' }
             ]
+          },
+          {
+            text: 'Web网站',
+            items: [
+              { text: '🌐 网站展示', link: '/projects/web-sites' }
+            ]
           }
           // 可继续添加更多项目子菜单项
         ]
