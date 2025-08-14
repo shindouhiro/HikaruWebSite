@@ -132,7 +132,7 @@ interface WebSite {
   tags: string[]
   githubUrl?: string
   liveUrl?: string
-  date: string
+  date?: string
 }
 
 const webSites: WebSite[] = [
@@ -145,33 +145,7 @@ const webSites: WebSite[] = [
     status: '在线运行',
     statusClass: 'bg-green-500 text-white',
     tags: ['React', 'Next','Tailwind'],
-    liveUrl: 'http://beltdealers.shindou.icu/',
-  },
-  {
-    id: 'belt-dealer-hub',
-    name: 'BeltDealerHub',
-    description: '皮带经销商管理平台，提供经销商注册、产品管理、订单处理等完整解决方案',
-    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
-    gradientClass: 'from-purple-500/20 to-pink-500/20',
-    status: '在线运行',
-    statusClass: 'bg-green-500 text-white',
-    tags: ['Next.js', 'Dashboard'],
-    githubUrl: 'https://github.com/yourusername/belt-dealer-hub',
-    liveUrl: 'https://beltdealer-hub.com',
-    date: '2025-02-08'
-  },
-  {
-    id: 'cool-magnets',
-    name: 'CoolMagnets',
-    description: '创意磁铁产品展示网站，提供各种有趣和实用的磁铁产品，支持在线定制',
-    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
-    gradientClass: 'from-orange-500/20 to-red-500/20',
-    status: '在线运行',
-    statusClass: 'bg-green-500 text-white',
-    tags: ['Vue.js', 'Creative'],
-    githubUrl: 'https://github.com/yourusername/cool-magnets',
-    liveUrl: 'https://coolmagnets.com',
-    date: '2025-02-05'
+    liveUrl: 'http://beltdealers.shindou.icu/'
   },
   {
     id: 'cartoon-world',
@@ -182,7 +156,7 @@ const webSites: WebSite[] = [
     status: '在线运行',
     statusClass: 'bg-green-500 text-white',
     tags: ['React', 'Next','Tailwind'],
-    liveUrl: 'http://cartoonworld.shindou.icu/',
+    liveUrl: 'http://cartoonworld.shindou.icu/'
   }
 ]
 </script>
