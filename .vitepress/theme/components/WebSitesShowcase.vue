@@ -137,17 +137,15 @@ interface WebSite {
 
 const webSites: WebSite[] = [
   {
-    id: 'belt-dealers-website',
-    name: 'BeltDealersWebsite',
-    description: '专业的皮带经销商网站，提供高质量的皮带产品展示和在线购买服务',
-    coverImage: 'https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&h=400&fit=crop',
+    id: 'belt-dealers',
+    name: 'BeltDealers',
+    description: 'Discover our collection of handcrafted leather belts. From casual to formal, find the perfect belt for every occasion.',
+    coverImage: 'https://i0.hdslb.com/bfs/openplatform/1eeed7a28eac7d9091cb9c792eaf27bf4540994a.png',
     gradientClass: 'from-blue-500/20 to-green-500/20',
     status: '在线运行',
     statusClass: 'bg-green-500 text-white',
-    tags: ['React', 'E-commerce'],
-    githubUrl: 'https://github.com/yourusername/belt-dealers-website',
-    liveUrl: 'https://beltdealers-website.com',
-    date: '2025-02-10'
+    tags: ['React', 'Next','Tailwind'],
+    liveUrl: 'http://beltdealers.shindou.icu/',
   },
   {
     id: 'belt-dealer-hub',
@@ -185,7 +183,6 @@ const webSites: WebSite[] = [
     statusClass: 'bg-green-500 text-white',
     tags: ['React', 'Next','Tailwind'],
     liveUrl: 'http://cartoonworld.shindou.icu/',
-    date: '2025-02-01'
   }
 ]
 </script>
