@@ -17,6 +17,14 @@ import LazyDockerGuide from './components/LazyDockerGuide.vue'
 import TmuxGuide from './components/TmuxGuide.vue'
 import PhotoCompositionGuide from './components/PhotoCompositionGuide.vue'
 import BilibiliVideo from '../../components/BilibiliVideo.vue'
+import GitHubActions from './components/GitHubActions.vue'
+import WechatShare from './components/WechatShare.vue'
+import BilibiliPlayer from './components/BilibiliPlayer.vue'
+import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
+import PackageExecutor from '../../frontend/components/PackageExecutor.vue'
+import ThirteenInvitations from '../../frontend/components/ThirteenInvitations.vue'
+import MiniVueProgress from '../../components/MiniVueProgress.vue'
+import WebSitesShowcase from './components/WebSitesShowcase.vue'
 import './custom.css'
 
 export default {
@@ -39,5 +47,13 @@ export default {
     app.component('TmuxGuide', TmuxGuide)
     app.component('PhotoCompositionGuide', PhotoCompositionGuide)
     app.component('BilibiliVideo', BilibiliVideo)
+    app.component('GitHubActions', GitHubActions)
+    app.component('WechatShare', WechatShare)
+    app.component('BilibiliPlayer', BilibiliPlayer)
+    app.component('DouyinEmbed', DouyinEmbed)
+    app.component('PackageExecutor', PackageExecutor)
+    app.component('ThirteenInvitations', ThirteenInvitations)
+    app.component('MiniVueProgress', MiniVueProgress)
+    app.component('WebSitesShowcase', WebSitesShowcase)
   }
 }
