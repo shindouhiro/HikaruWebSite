@@ -560,26 +560,43 @@
         </div>
       </div>
 
-      <!-- 底部统计信息 -->
-      <div class="mt-20 text-center">
-        <div class="flex justify-center items-center gap-12 text-gray-600 dark:text-gray-400">
-          <div class="flex items-center gap-3">
-            <span class="text-3xl">📊</span>
-            <span class="text-lg font-medium">7 个开源项目</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="text-3xl">⭐</span>
-            <span class="text-lg font-medium">持续更新中</span>
-          </div>
-          <div class="flex items-center gap-3">
-            <span class="text-3xl">🔗</span>
-            <span class="text-lg font-medium">欢迎 Star & Fork</span>
+      <!-- 社交联系方式 -->
+      <div class="mt-20 border-t border-gray-200 dark:border-gray-700 pt-16">
+
+        <div class="flex justify-center items-center gap-8 md:gap-12 social-container">
+          <div v-for="link in socialLinks" :key="link.key" class="relative group">
+            <div class="flex flex-col items-center gap-3 cursor-pointer">
+              <div class="w-16 h-16 md:w-20 md:h-20 flex items-center justify-center rounded-2xl group-hover:scale-110 transition-all duration-300 ease-out social-icon" :class="link.hoverBg">
+                <div class="relative w-16 h-16 md:w-20 md:h-20">
+                  <div class="transition-all duration-300" :class="[link.icon, 'w-16 h-16 md:w-20 md:h-20 text-gray-600 group-hover:text-white']"></div>
+                  <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-300" :class="[link.iconActive, 'w-16 h-16 md:w-20 md:h-20 text-white']"></div>
+                </div>
+              </div>
+              <span v-if="link.label" class="text-sm font-medium text-gray-700 dark:text-gray-300">{{ link.label }}</span>
+            </div>
+            <!-- 二维码弹层 -->
+            <div class="absolute bottom-full left-1/2 transform -translate-x-1/2 mb-4 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-all duration-300 ease-out z-50">
+              <div class="rounded-lg shadow-2xl p-4 border border-gray-200 dark:border-gray-700">
+                <div class="relative w-32 h-32 md:w-36 md:h-36 rounded-lg overflow-hidden qr-popup">
+                  <img :src="link.qr" alt="二维码" class="w-full h-full object-contain">
+                  <div class="absolute inset-0"></div>
+                </div>
+                <div class="absolute top-full left-1/2 transform -translate-x-1/2 -mt-1">
+                  <div class="w-2 h-2 bg-white dark:bg-gray-800 border-r border-b border-gray-200 dark:border-gray-700 transform rotate-45"></div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
+ 
     </div>
   </div>
 </template>
+
+<script setup lang="ts">
+import { socialLinks } from '../../../data/socialLinks'
+</script>
 
 <style scoped>
 .project-wrapper {
@@ -653,6 +670,20 @@ a:active {
   
   .project-wrapper p {
     @apply text-lg;
+  }
+
+  /* 移动端社交联系方式优化 */
+  .project-wrapper .social-container {
+    @apply gap-6;
+  }
+  
+  .project-wrapper .social-icon {
+    @apply w-14 h-14;
+  }
+  
+  /* 移动端二维码弹层调整 */
+  .project-wrapper .qr-popup {
+    @apply w-28 h-28;
   }
 }
 </style>
