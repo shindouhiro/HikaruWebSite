@@ -21,6 +21,13 @@ services:
 ```bash
 docker-compose up -d
 ```
+
++ 查解锁 Jenkins
+```bash
+cat /var/jenkins_home/secrets/initialAdminPassword
+```
+
+
 + 飞牛识别了我Jenkins
 ![](https://i0.hdslb.com/bfs/openplatform/236e7b26726f2f1fc0a9cce342c36781f891251d.png@1e_1c.webp)
 

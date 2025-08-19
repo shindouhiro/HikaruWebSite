@@ -8,7 +8,6 @@
                        from-blue-600 via-purple-500 to-blue-600
                        animate-gradient-x">Web网站展示</span>
         </h1>
-        <p class="mt-4 text-xl text-gray-600 dark:text-gray-400">精选的Web网站项目集合</p>
       </div>
 
       <!-- 网站项目网格 -->
