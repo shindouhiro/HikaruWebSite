@@ -94,3 +94,11 @@ npm install -g @musistudio/claude-code-router
 </div>
 
 ---
+
+
+## 全局上下文配置
++ ~/.claude/claude.md
+## 全局Hooks
+~/.claude/settings.json - 用户设置
+.claude/settings.json - 项目设置
+.claude/settings.local.json - 本地项目设置（不提交
