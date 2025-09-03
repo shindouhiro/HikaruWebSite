@@ -28,20 +28,24 @@
             {{ copySuccess ? '已复制' : '复制' }}
           </button>
 
-          <pre class="text-green-400 text-sm"><code>version: "3.8"
+          <pre class="text-green-400 text-sm"><code>
+            version: "3.8"
 services:
   jenkins:
     user: root
     image: jenkins/jenkins:lts
     container_name: jenkins
     ports:
-      - "8080:8080"
+      - "9090:8080"
       - "50000:50000"
     volumes:
       - /var/jenkins_home:/var/jenkins_home
+      - ./jenkins_ssh:/var/jenkins_home/.ssh
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-    restart: unless-stopped</code></pre>
+      - /usr/libexec/docker/cli-plugins:/usr/libexec/docker/cli-plugins
+    restart: unless-stopped
+          </code></pre>
         </div>
       </div>
 
@@ -132,8 +136,8 @@ services:
         <div class="bg-blue-50 rounded-xl p-6">
           <h3 class="text-lg font-medium text-blue-800 mb-3">项目指定Node版本</h3>
           <p class="text-blue-700 mb-3"></p>
-          <img src="https://i0.hdslb.com/bfs/openplatform/09f9a1873aec95b9f3d26b88d66bf529c61c0c6c.png"
-            alt="配置Node版本" class="rounded-lg max-w-full h-auto" />
+          <img src="https://i0.hdslb.com/bfs/openplatform/09f9a1873aec95b9f3d26b88d66bf529c61c0c6c.png" alt="配置Node版本"
+            class="rounded-lg max-w-full h-auto" />
         </div>
       </div>
     </section>
@@ -254,20 +258,24 @@ services:
 }
 
 const copyDockerComposeConfig = async () => {
-  const dockerCompose = `version: "3.8"
+  const dockerCompose = `
+version: "3.8"
 services:
   jenkins:
     user: root
     image: jenkins/jenkins:lts
     container_name: jenkins
     ports:
-      - "8080:8080"
+      - "9090:8080"
       - "50000:50000"
     volumes:
       - /var/jenkins_home:/var/jenkins_home
+      - ./jenkins_ssh:/var/jenkins_home/.ssh
       - /var/run/docker.sock:/var/run/docker.sock
       - /usr/bin/docker:/usr/bin/docker
-    restart: unless-stopped`
+      - /usr/libexec/docker/cli-plugins:/usr/libexec/docker/cli-plugins
+    restart: unless-stopped
+    `
 
   try {
     await navigator.clipboard.writeText(dockerCompose)

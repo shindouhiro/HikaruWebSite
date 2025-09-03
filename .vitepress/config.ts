@@ -21,7 +21,16 @@ export default defineConfig({
     outlineTitle: '本页目录',
     nav: [
       { text: '首页', link: '/' },
-      { 
+      {
+        text: 'Nas',
+        items: [
+          {
+            text: '私人影院资源篇',
+            link: '/nas/movie'
+          }
+        ]
+      },
+      {
         text: '工具',
         items: [
           {
@@ -61,7 +70,7 @@ export default defineConfig({
             text: 'DevOps',
             items: [
               { text: 'GitHub Actions', link: '/devops/github-actions' },
-              {text: 'Jenkins自动化部署', link: '/devops/jenkins'},
+              { text: 'Jenkins自动化部署', link: '/devops/jenkins' },
             ]
           },
           {
@@ -77,10 +86,10 @@ export default defineConfig({
           {
             text: 'AI',
             items: [
-              {text: '解决Cursor Claude模型被封', link: '/ai/claude-model'},
-              {text: 'Roo Code集成模型', link: '/ai/roocode'},
-              {text: 'Claude Cli使用指南', link: '/ai/claude-cli'},
-              {text: 'Crush终端连接LLM', link: '/ai/crush'}
+              { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
+              { text: 'Roo Code集成模型', link: '/ai/roocode' },
+              { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
+              { text: 'Crush终端连接LLM', link: '/ai/crush' }
             ]
           }
         ]
