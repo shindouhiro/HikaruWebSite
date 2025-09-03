@@ -10,11 +10,12 @@
 - [PanSou](#pansou)
 - [Quark Auto Save](#quark-auto-save)
 - [使用指南](#使用指南)
+- [部署](#部署)
 
 ---
 
 ## CloudSaver
--  [我的CloudSaver](http://quark.shindou.icu)
+-  [我的 CloudSaver](http://quark.shindou.icu)
 - **仓库**: [jiangrui1994/CloudSaver](https://github.com/jiangrui1994/CloudSaver)
 - **技术栈**: Vue 3 + Express
 - **特性**:
@@ -27,7 +28,7 @@
 ---
 
 ## PanSou
-- [我的PanSou](http://pansou.shindou.icu/)
+- [我的 PanSou](http://pansou.shindou.icu/)
 - **仓库**: [fish2018/pansou](https://github.com/fish2018/pansou)
 - **定位**: 高性能网盘资源搜索 API 服务，支持 TG 搜索与自定义插件
 - **特点**:
@@ -37,7 +38,7 @@
 ---
 
 ## Quark Auto Save
-- **我的Quark Auto Save**: [我的Quark Auto Save](http://quark.shindou.icu)
+- **我的 Quark Auto Save**: [访问地址](http://quark.shindou.icu)
 - **仓库**: [Cp0204/quark-auto-save](https://github.com/Cp0204/quark-auto-save)
 - **功能**: 夸克网盘签到、自动转存、命名整理、推送提醒、刷新媒体库
 - **适用**: 对于持续更新资源，定期自动化转存 + 文件名整理，配合 SmartStrm / OpenList / Emby 可实现自动追更
@@ -47,7 +48,7 @@
 ## 使用指南
 
 ### 使用 CloudSaver
--  [我的CloudSaver](http://quark.shindou.icu)
+-  [我的 CloudSaver](http://quark.shindou.icu)
 1. 搜索资源
    <img src="https://i0.hdslb.com/bfs/openplatform/1a51dde2fdec91129f4aef72dc5a0164b1d0cd87.png" alt="CloudSaver 搜索资源" class="w-full md:w-4/5 lg:w-3/4 rounded-lg shadow-sm mx-auto" />
 2. 选择并执行转存
@@ -69,6 +70,94 @@
 
 ---
 
+## 部署
 
+> 建议使用 docker-compose 管理服务，映射必要数据目录，设置合适的重启策略。以下示例均为最小可用配置，请按需扩展。
+
+### Quark Auto Save
+
+```yaml
+name: quark-auto-save
+services:
+  quark-auto-save:
+    image: cp0204/quark-auto-save:latest
+    container_name: quark-auto-save
+    network_mode: bridge
+    ports:
+      - 5050:5005
+    restart: unless-stopped
+    environment:
+      WEBUI_USERNAME: "xxx"
+      WEBUI_PASSWORD: "xxx"
+    volumes:
+      - ./quark-auto-save/config:/app/config
+      - ./quark-auto-save/media:/media
+```
+
+### CloudSaver
+
+> 依赖科学上网（如 Clash）才能稳定搜索资源。
+
+```yaml
+version: "3"
+services:
+  cloudsaver:
+    image: jiangrui1994/cloudsaver:latest
+    container_name: cloud-saver
+    ports:
+      - "8008:8008"
+    volumes:
+      - ./data:/app/data
+      - ./config:/app/config
+    restart: unless-stopped
+```
+
+### Clash
+
+```yaml
+services:
+  clash:
+    image: registry.cn-hangzhou.aliyuncs.com/zanzifeng/docker-images:clash
+    restart: always
+    container_name: clash
+    network_mode: host
+    volumes:
+      - ./config/config.yaml:/app/server/config.yaml
+```
+
+### PanSou
+
+```yaml
+version: '3.8'
+
+services:
+  pansou:
+    image: ghcr.io/fish2018/pansou-web:latest
+    container_name: pansou-app
+    ports:
+      - "40:80"
+    environment:
+      # 基础配置
+      - DOMAIN=localhost
+      - PANSOU_PORT=8888
+      - PANSOU_HOST=127.0.0.1
+    volumes:
+      # 数据持久化
+      - pansou-data:/app/data
+      - pansou-logs:/app/logs
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost/api/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+
+volumes:
+  pansou-data:
+    driver: local
+  pansou-logs:
+    driver: local
+```
 
 </div>
