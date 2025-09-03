@@ -35,6 +35,8 @@
 ![搜索指定保存路径](https://i0.hdslb.com/bfs/openplatform/a0783080a56bf37ecf5efb757e912b2de38d1573.png)
 + 点击执行
 ![点击执行](https://i0.hdslb.com/bfs/openplatform/97f8cadbaab727885eef8dd13389217a5e93fbfc.png)
++ 点击扫描文件
+![点击扫描文件](https://i0.hdslb.com/bfs/openplatform/1aa6c4003890f262fcb705c0cf988308b9b29a21.jpg)
 
 
 
