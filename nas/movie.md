@@ -15,7 +15,7 @@
 ---
 
 ## CloudSaver
--  [我的 CloudSaver](http://quark.shindou.icu)
+-  [我的 CloudSaver](http://cloud.shindou.icu)
 - **仓库**: [jiangrui1994/CloudSaver](https://github.com/jiangrui1994/CloudSaver)
 - **技术栈**: Vue 3 + Express
 - **特性**:
