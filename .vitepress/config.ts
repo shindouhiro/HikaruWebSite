@@ -27,6 +27,10 @@ export default defineConfig({
           {
             text: '私人影院资源篇',
             link: '/nas/movie'
+          },
+          {
+            text: '转存',
+            link: '/nas/pan'
           }
         ]
       },
