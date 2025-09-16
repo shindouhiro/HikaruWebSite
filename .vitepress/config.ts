@@ -11,7 +11,8 @@ interface NavItem {
 }
 
 export default defineConfig({
-  appearance: 'dark', // 默认使用黑色主题，但允许用户切换
+  lang: 'zh-CN',
+  appearance: 'dark',
   title: "Hikaru",
   description: "AI Native Coder",
   head: [
@@ -19,6 +20,7 @@ export default defineConfig({
   ],
   themeConfig: {
     outlineTitle: '本页目录',
+    // 评论配置在 `.vitepress/giscus.ts` 中维护
     nav: [
       { text: '首页', link: '/' },
       {
