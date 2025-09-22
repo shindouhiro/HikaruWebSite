@@ -5,19 +5,20 @@ import { useData } from 'vitepress'
 const { page, isDark } = useData()
 const enabled = computed(() => page.value?.frontmatter?.comments !== false)
 
+// 直接用 script 标签注入 Giscus
 const CONFIG = {
-  // Giscus 配置（来自你提供的数据）
-  repo: 'shindouhiro/docs',
-  repoId: 'R_kgDOPw1hkA',
-  category: 'General',
-  categoryId: 'DIC_kwDOPw1hkM4CvgHW',
-  mapping: 'pathname',
+  repo: 'shindouhiro/HikaruWebSite',
+  repoId: 'R_kgDON4w02Q',
+  category: 'Announcements',
+  categoryId: 'DIC_kwDON4w02c4CvwSJ', // 按要求更新
+  mapping: 'pathname', // 使用路径映射，避免把 localhost 全链接写入讨论
   strict: '0',
   reactionsEnabled: '1',
-  emitMetadata: '0',
-  inputPosition: 'bottom',
+  emitMetadata: '1',
+  inputPosition: 'top',
   theme: 'preferred_color_scheme',
-  lang: 'zh-CN'
+  lang: 'zh-CN',
+  loading: 'lazy'
 }
 
 function updateGiscusTheme(dark: boolean) {
@@ -30,12 +31,12 @@ function updateGiscusTheme(dark: boolean) {
   }, 'https://giscus.app')
 }
 
-onMounted(() => {
+function injectGiscus() {
   if (!enabled.value) return
-  // 避免重复注入
   const container = document.getElementById('giscus-container')
   if (!container) return
-  if (container.querySelector('script.giscus-script')) return
+  // 清理旧的 iframe 与脚本，避免路由切换残留
+  container.querySelectorAll('iframe.giscus-frame, script.giscus-script').forEach(n => n.remove())
 
   const script = document.createElement('script')
   script.src = 'https://giscus.app/client.js'
@@ -48,10 +49,19 @@ onMounted(() => {
   // 等待 iframe 挂载后同步一次主题
   const trySync = () => updateGiscusTheme(!!isDark.value)
   setTimeout(trySync, 800)
+}
+
+onMounted(() => {
+  injectGiscus()
 })
 
 watch(isDark, (val) => {
   updateGiscusTheme(!!val)
+})
+
+// 路由切换时重载 giscus，确保 pathname 映射正确
+watch(() => page.value?.relativePath, () => {
+  injectGiscus()
 })
 </script>
 
