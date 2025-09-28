@@ -224,6 +224,20 @@ const completedBooks = [
     author: '黄灯',
     cover: 'https://i0.hdslb.com/bfs/openplatform/c1429ce7041ac10275e4296a80f268deb17a969e.png',
     completedDate: '2025-07-18'
+  },
+  {
+    id: 6,
+    title: '姥姥语录',
+    author: '倪萍',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/011beff6d04caddf79b8b81e0df548b6960a05fc.png',
+    completedDate: '2025-09-23'
+  },
+  {
+    id: 7,
+    title: '我在北京送快递',
+    author: '胡安焉',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/f5724307376913fe88de5f540f16ceb7d3772ec6.png',
+    completedDate: '2025-09-28'
   }
 ]
 
