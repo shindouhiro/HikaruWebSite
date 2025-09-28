@@ -230,7 +230,7 @@ const completedBooks = [
     title: '姥姥语录',
     author: '倪萍',
     cover: 'https://i0.hdslb.com/bfs/openplatform/011beff6d04caddf79b8b81e0df548b6960a05fc.png',
-    completedDate: '2025-09-23'
+    completedDate: '2025-09-21'
   },
   {
     id: 7,
