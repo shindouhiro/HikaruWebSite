@@ -521,6 +521,15 @@ const runningData = {
     duration: "30:25",
     image:
       "https://i0.hdslb.com/bfs/openplatform/6b03185505e39b2f93c93c64b74d52f959a9c15f.jpg",
+  },
+  25: {
+    completed: true,
+    date: "2025-10-10",
+    distance: "5.0",
+    pace: "7'27",
+    duration: "37:37",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/1a3f3e2e2f3e4e1f6e8f4c6b7a8d9e0f1a2b3c4d.jpg",
   }
 }
 
