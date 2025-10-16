@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import UnoCSS from 'unocss/vite'
 import { presetUno, presetIcons } from 'unocss'
 import type { DefaultTheme } from 'vitepress'
+import { link } from 'fs'
 
 // 定义导航菜单项的类型
 interface NavItem {
@@ -86,6 +87,8 @@ export default defineConfig({
               { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
               { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' },
               { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
+              { text: 'Mini-Router学习', link: '/frontend/mini-router' },
+              { text: 'React Router 6 源码学习', link: '/frontend/react-router' },
               { text: '高效批量管理自定义 SVG 图标最佳实践', link: '/frontend/vscode-svg-icon-plugin' }
             ]
           },

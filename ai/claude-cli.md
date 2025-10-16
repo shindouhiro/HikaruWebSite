@@ -1,104 +1,54 @@
----
-layout: doc
----
+## [cc-model-switcher切换多套Claude Code环境](https://github.com/XiaYeAI/cc-model-switcher)
 
-# Claude CLI 使用指南
-
-<div class="doc-section">
-
-## 📦 安装 Claude Code
-
-```bash
-npm install -g @anthropic-ai/claude-code
 ```
-
-</div>
-
-<div class="doc-section">
-
-## 📚 官方文档
-
-### [Claude Code 官方文档](https://docs.anthropic.com/en/docs/claude-code/overview)
-
-</div>
-
-<div class="router-section">
-
-## 🔄 接入方式使用 claude-code-router
-
-### 📦 安装 claude-code-router
-
-```bash
-npm install -g @musistudio/claude-code-router
-```
-
-### ⚙️ 配置
-
-- **api_key**: 添加你的 API 密钥
-- **models**: 支持的模型列表
-- **transformer**: 模型转换器配置
-- **Router**: 路由配置，设置默认模型
-
-</div>
-
-创建配置文件 `~/.claude-code-router/config.json`：
-
-```json
 {
-  "modelscope": {
-    "name": "modelscope",
-    "api_base_url": "https://api-inference.modelscope.cn/v1/chat/completions",
-    "api_key": "你的API密钥",
-    "models": [
-      "Qwen/Qwen3-Coder-480B-A35B-Instruct",
-      "Qwen/Qwen3-235B-A22B-Thinking-2507"
-    ],
-    "transformer": {
-      "use": [
-        [
-          "maxtoken",
-          {
-            "max_tokens": 65536
-          }
-        ],
-        "enhancetool"
-      ],
-      "Qwen/Qwen3-235B-A22B-Thinking-2507": {
-        "use": [
-          "reasoning"
-        ]
+  "models": {
+    "glm-4.6": {
+      "description": "GLM-4.6",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://open.bigmodel.cn/api/anthropic",
+        "ANTHROPIC_AUTH_TOKEN": "",
+        "API_TIMEOUT_MS": "600000",
+        "ANTHROPIC_MODEL": "GLM-4.6",
+        "ANTHROPIC_SMALL_FAST_MODEL": "kimi-k2-0711-preview"
+      }
+    },
+    "any-router-v1": {
+      "description": "any-router-v1",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://q.quuvv.cn",
+        "ANTHROPIC_AUTH_TOKEN": ""
+      }
+    },
+    "any-router-v2": {
+      "description": "any-router-v2",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://q.quuvv.cn",
+        "ANTHROPIC_AUTH_TOKEN": ""
+      }
+    },
+    
+    "gemini": {
+      "description": "gemini",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://openrouter.ai/api/v1/chat/completions",
+        "ANTHROPIC_AUTH_TOKEN": "",
+        "ANTHROPIC_MODEL": "google/gemini-2.0-flash-exp:free"
+      }
+    },
+    "modelscope": {
+      "description": "modelscope",
+      "env": {
+        "ANTHROPIC_BASE_URL": "https://api-inference.modelscope.cn",
+        "ANTHROPIC_AUTH_TOKEN": "",
+        "ANTHROPIC_MODEL": "ZhipuAI/GLM-4.6"
       }
     }
-  },
-  "Router": {
-    "default": "modelscope,Qwen/Qwen3-Coder-480B-A35B-Instruct"
   }
 }
 ```
 
-
-
-<div class="install-section">
-
-## 🚀 快速开始
-
-3. **配置 API 密钥**
-   - 编辑 `~/.claude-code-router/config.json`
-   - 添加你的 API 密钥
-
-4. **开始使用**
-   ```bash
-   ccr code
-   ```
-
-</div>
-
----
-
-
-## 全局上下文配置
-+ ~/.claude/claude.md
-## 全局Hooks
-~/.claude/settings.json - 用户设置
-.claude/settings.json - 项目设置
-.claude/settings.local.json - 本地项目设置（不提交
+## [anyrouter](https://anyrouter.top/)
+## [modelscope](https://www.modelscope.cn/models/ZhipuAI/GLM-4.6)
+## [glm](https://open.bigmodel.cn/usercenter/proj-mgmt/apikeys)
+![](https://i0.hdslb.com/bfs/openplatform/7f106d80e4514345bcd236b6f64e76ea3bd5e0fb.png)
