@@ -63,8 +63,9 @@
               class="p-4 rounded-xl bg-gradient-to-br from-blue-500/10 to-teal-500/10 border border-blue-500/20 dark:border-blue-500/30"
             >
               <div class="text-lg font-bold text-blue-500">
-                {{ totalDistance }}km
+                {{ totalDistance }}
               </div>
+              <div>km</div>
               <div class="text-sm text-gray-600 dark:text-gray-400">总里程</div>
             </div>
             <div
@@ -154,7 +155,6 @@
                 >
                   {{ record.date }}
                 </h4>
-                <span class="text-sm text-gray-500">{{ record.time }}</span>
               </div>
               <div class="mt-2 flex gap-4">
                 <span class="text-sm text-gray-600 dark:text-gray-400">
@@ -173,166 +173,119 @@
       </div>
 
       <!-- 打卡详情弹窗 -->
-      <div
-        v-if="showModal"
-        class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto"
-        @click="showModal = false"
-      >
+      <Transition name="modal-fade">
         <div
-          class="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 max-w-lg w-full mx-4 shadow-xl"
-          @click.stop
+          v-if="showModal"
+          class="fixed inset-0 bg-black/50 flex items-center justify-center z-50 overflow-y-auto"
+          @click="closeModal"
         >
-          <div class="flex justify-between items-center mb-4">
-            <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">
-              第 {{ selectedDay }} 天
-            </h3>
-            <button
-              @click="showModal = false"
-              class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
-            >
-              <div class="i-carbon-close text-xl" />
-            </button>
-          </div>
+          <div
+            class="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 max-w-lg w-full mx-4 shadow-xl"
+            @click.stop
+          >
+            <div class="flex justify-between items-center mb-4">
+              <div class="flex items-center gap-2">
+                <h3 class="text-xl font-bold text-gray-800 dark:text-gray-200">
+                  第 {{ selectedDay }} 天
+                </h3>
+                <span 
+                  v-if="getDayStatus(selectedDay).completed"
+                  class="px-2 py-1 text-xs bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200 rounded-full"
+                >
+                  已完成
+                </span>
+                <span 
+                  v-else
+                  class="px-2 py-1 text-xs bg-gray-100 text-gray-600 dark:bg-gray-700 dark:text-gray-400 rounded-full"
+                >
+                  未完成
+                </span>
+              </div>
+              <div class="flex items-center gap-2">
+                <!-- 左箭头 -->
+                <button
+                  v-if="hasPreviousDay"
+                  @click="previousDay"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  title="上一天"
+                >
+                  <div class="i-carbon-arrow-left text-xl" />
+                </button>
+                <!-- 右箭头 -->
+                <button
+                  v-if="hasNextDay"
+                  @click="nextDay"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg transition-colors"
+                  title="下一天"
+                >
+                  <div class="i-carbon-arrow-right text-xl" />
+                </button>
+                <!-- 关闭按钮 -->
+                <button
+                  @click="closeModal"
+                  class="p-2 hover:bg-gray-100 dark:hover:bg-gray-800 rounded-lg"
+                >
+                  <div class="i-carbon-close text-xl" />
+                </button>
+              </div>
+            </div>
 
-          <div v-if="getDayStatus(selectedDay).completed">
-            <img
-              :src="getDayStatus(selectedDay).image"
-              :alt="`Day ${selectedDay}`"
-              class="w-full rounded-lg mb-4 mt-2"
-            />
-            <div class="space-y-2">
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">日期</span>
-                <span class="text-gray-800 dark:text-gray-200">{{
-                  getDayStatus(selectedDay).date
-                }}</span>
+            <div v-if="getDayStatus(selectedDay).completed">
+              <img
+                :src="getDayStatus(selectedDay).image"
+                :alt="`Day ${selectedDay}`"
+                class="w-full rounded-lg mb-4 mt-2"
+                loading="lazy"
+              />
+              <div class="space-y-2">
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600 dark:text-gray-400">日期</span>
+                  <span class="text-gray-800 dark:text-gray-200">{{
+                    getDayStatus(selectedDay).date
+                  }}</span>
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600 dark:text-gray-400">距离</span>
+                  <span class="text-gray-800 dark:text-gray-200"
+                    >{{ getDayStatus(selectedDay).distance }}km</span
+                  >
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600 dark:text-gray-400">配速</span>
+                  <span class="text-gray-800 dark:text-gray-200"
+                    >{{ getDayStatus(selectedDay).pace }}/km</span
+                  >
+                </div>
+                <div class="flex justify-between text-sm">
+                  <span class="text-gray-600 dark:text-gray-400">用时</span>
+                  <span class="text-gray-800 dark:text-gray-200">{{
+                    getDayStatus(selectedDay).duration
+                  }}</span>
+                </div>
+                <p class="text-sm text-gray-600 dark:text-gray-400 mt-4">
+                  {{ getDayStatus(selectedDay).note }}
+                </p>
               </div>
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">距离</span>
-                <span class="text-gray-800 dark:text-gray-200"
-                  >{{ getDayStatus(selectedDay).distance }}km</span
-                >
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">配速</span>
-                <span class="text-gray-800 dark:text-gray-200"
-                  >{{ getDayStatus(selectedDay).pace }}/km</span
-                >
-              </div>
-              <div class="flex justify-between text-sm">
-                <span class="text-gray-600 dark:text-gray-400">用时</span>
-                <span class="text-gray-800 dark:text-gray-200">{{
-                  getDayStatus(selectedDay).duration
-                }}</span>
-              </div>
-              <p class="text-sm text-gray-600 dark:text-gray-400 mt-4">
-                {{ getDayStatus(selectedDay).note }}
-              </p>
+            </div>
+            <div v-else class="text-center py-8 text-gray-500">
+              还未完成这天的跑步打卡
             </div>
           </div>
-          <div v-else class="text-center py-8 text-gray-500">
-            还未完成这天的跑步打卡
-          </div>
         </div>
-      </div>
+      </Transition>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
-import { ref, onMounted, watch, computed } from "vue";
-import { useData } from "vitepress";
-
-// 获取 VitePress 数据
-const { site } = useData();
-
-// 示例数据
-const completedDays = 3;
-const totalDistance = 5;
-const currentStreak = 2;
-const averagePace = "5'30";
-
-// 设置页面标题
-const pageTitle = computed(() => `100天5km跑步挑战 - 已完成${completedDays}天`);
-const updateTitle = () => {
-  // 更新浏览器标题
-  document.title = `${pageTitle.value} | ${site.value.title}`;
-};
-
-// 在组件挂载时更新标题
-onMounted(() => {
-  updateTitle();
-});
-
-// 监听完成天数变化，动态更新标题
-watch(
-  () => completedDays,
-  () => {
-    updateTitle();
-  }
-);
-
-// 最近记录数据
-const recentRecords = [
-  {
-    day: 2,
-    date: "2025-04-17",
-    time: "18:30",
-    distance: "5.0",
-    pace: "6'41",
-    duration: "33:25",
-  },
-  {
-    day: 1,
-    date: "2025-03-10",
-    time: "19:15",
-    distance: "5.0",
-    pace: "9'12",
-    duration: "47:49",
-  },
-  {
-    day: 3,
-    date: "2025-04-18",
-    time: "21:00",
-    distance: "5.0",
-    pace: "6'24",
-    duration: "32:02",
-  },
-];
-
-// 弹窗控制
-const showModal = ref(false);
-const selectedDay = ref(1);
-
-// 分享功能
-const shareToWeChat = () => {
-  // 生成要分享的URL
-  const shareUrl = window.location.href;
-  const shareTitle = `100天5km跑步挑战,已完成${completedDays}天`;
-  const shareDesc = `已完成${completedDays}天，总距离${totalDistance}km！一起来挑战吧！`;
-
-  // 使用原生分享API（如果支持）
-  if (navigator.share) {
-    navigator.share({
-      title: shareTitle,
-      text: shareDesc,
-      url: shareUrl,
-    });
-  } else {
-    // 如果不支持，则显示二维码或复制链接
-    // 这里可以使用第三方库生成二维码
-    alert("请长按链接进行分享：" + shareUrl);
-  }
-};
-
-const shareToWeibo = () => {
-  const shareUrl = encodeURIComponent(window.location.href);
-  const shareTitle = encodeURIComponent(
-    `我正在参与100天5km跑步挑战！已完成${completedDays}天，总距离${totalDistance}km！一起来挑战吧！`
-  );
-  const weiboShareUrl = `http://service.weibo.com/share/share.php?url=${shareUrl}&title=${shareTitle}`;
-  window.open(weiboShareUrl, "_blank");
-};
+import { 
+  useModal, 
+  useKeyboard, 
+  useShare, 
+  usePageTitle, 
+  useRunningStats 
+} from '../hooks'
+import { ref, onMounted } from 'vue'
 
 // 打卡数据
 const runningData = {
@@ -360,24 +313,268 @@ const runningData = {
     date: "2025-04-18",
     distance: "5.0",
     pace: "6'24",
-    image: 
+    image:
       "https://i0.hdslb.com/bfs/article/6633f7d2cee57c9e040cabfa10f91ccc16643837.jpg",
-      note: "恢复跑步的第三天",
+    note: "恢复跑步的第三天",
+  },
+  4: {
+    completed: true,
+    date: "2025-04-19",
+    distance: "5.0",
+    pace: "6'22",
+    image:
+      "https://i0.hdslb.com/bfs/article/06263bfcf438fbbff52c1f225a1229ee16643837.jpg",
+    note: "恢复跑步的第四天",
+  },
+  5: {
+    completed: true,
+    date: "2025-04-22",
+    distance: "5.0",
+    pace: "6'20",
+    duration: "32:21",
+    image:
+      "https://i0.hdslb.com/bfs/article/b6a3c7ca2dcdd3006dd6c05c45da457a16643837.jpg",
+    note: "恢复跑步的第五天",
+  },
+  6: {
+    completed: true,
+    date: "2025-04-23",
+    distance: "5.0",
+    pace: "6'10",
+    duration: "31:03",
+    image:
+      "https://i0.hdslb.com/bfs/article/74d3358535668cf221fa43e73ad6831916643837.jpg",
+    note: "恢复跑步的第六天",
+  },
+  7: {
+    completed: true,
+    date: "2025-06-02",
+    distance: "5.0",
+    pace: "6'14",
+    duration: "31:28",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/96291e2b14bf96ec1cff87f40716f7adb63939d9.jpg",
+    note: "恢复跑步的第七天",
+  },
+  8: {
+    completed: true,
+    date: "2025-06-08",
+    distance: "5.0",
+    pace: "6'36",
+    duration: "33:25",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/4114c6c8103c3876622dde4046ebeb2c87317375.jpg",
+    note: "恢复跑步的第八天",
+  },
+  9: {
+    completed: true,
+    date: "2025-06-09",
+    distance: "5.0",
+    pace: "6'39",
+    duration: "33:25",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/a8f49ab4defb6e9eb19340f67f26fb80ad4886b5.jpg",
+    note: "恢复跑步第九天",
+  },
+  10: {
+    completed: true,
+    date: "2025-06-10",
+    distance: "5.0",
+    pace: "6'55",
+    duration: "34:52",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/67838a461901ec17209fd7a3c02e97ccf2b70810.jpg",
+    note: "恢复跑步第十天",
+  },
+  11: {
+    completed: true,
+    date: "2025-06-18",
+    distance: "5.0",
+    pace: "6'06",
+    duration: "30:50",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/d399534d7ddd95a3c00ba14a664051021a1e935a.jpg",
+    note: "恢复跑步第十一天",
+  },
+  12: {
+    completed: true,
+    date: "2025-06-22",
+    distance: "5.0",
+    pace: "6'00",
+    duration: "30:16",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/c437d09a274f3e3e9a2861d9bf7fad3bac60cbba.jpg",
+    note: "恢复跑步第十二天",
+  },
+  13: {
+    completed: true,
+    date: "2025-06-23",
+    distance: "5.0",
+    pace: "5'55",
+    duration: "29:50",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/516f9042791c9e1f198201b3d32d1b4926a232f8.jpg",
+    note: "恢复跑步第十三天",
+  },
+  14: {
+   completed: true,
+   date: "2025-06-24",
+   distance: "5.0",
+   pace: "6'15",
+   duration: "33:34",
+   image:
+     "https://i0.hdslb.com/bfs/openplatform/8d0c6e5658655076e26816febc8a7fbce8a5ebdf.jpg",
+   note: "恢复跑步第十四天",
+  },
+  15: {
+    completed: true,
+    date: "2025-06-25",
+    distance: "5.0",
+    pace: "5'59",
+    duration: "30:38",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/8001a5f721f5b7b2c6996731c40c318e01449e94.jpg",
+    note: "恢复跑步第十五天",
+  },
+  16:{
+    completed: true,
+    date: "2025-07-07",
+    distance: "5.0",
+    pace: "6'10",
+    duration: "31:08",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/9da1c9dfb13f38bd59fdaf06cb67bb29b5062225.jpg",
+    note: "恢复跑步第十六天",
+  },
+  17: {
+    completed: true,
+    date: "2025-07-13",
+    distance: "5.0",
+    pace: "5'52",
+    duration: "29:40",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/cab814cef255f8c8d7441b0594432074446cec06.jpg",
+    note: "恢复跑步第十七天",
+  },
+  18: {
+    completed: true,
+    date: "2025-07-22",
+    distance: "5.0",
+    pace: "5'46",
+    duration: "29:04",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/f9ffa345dbbd1c4341ad3b2b5086cacfb2579ec6.jpg",
+    note: "恢复跑步第十八天",
+  },
+  19: {
+    completed: true,
+    date: "2025-07-24",
+    distance: "5.0",
+    pace: "5'58",
+    duration: "30:06",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/cd53d35d6e56c692e28e5a63bff68afa3d9758bb.jpg",
+    note: "恢复跑步第十九天",
+  },
+  20: {
+    completed: true,
+    date: "2025-07-26",
+    distance: "5.0",
+    pace: "5'43",
+    duration: "28:53",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/f2c202c5e765950ab15adba48187229599785742.jpg",
+  },
+  21: {
+    completed: true,
+    date: "2025-07-29",
+    distance: "5.0",
+    pace: "5'51",
+    duration: "29:28",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/c41bd495a03ac086eeefbbc41c1e8f81913c1b61.jpg",
+  },
+  22: {
+    completed: true,
+    date: "2025-08-03",
+    distance: "5.0",
+    pace: "5'55",
+    duration: "29:50",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/ea427fd47fffe148a7b0db0e91b4f56ae392eb80.jpg",
+    note: "恢复跑步第二十二天",
+  },
+  23: {
+    completed: true,
+    date: "2025-08-16",
+    distance: "5.0",
+    pace: "6'01",
+    duration: "30:19",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/26dc1e0103429c364e41761b3f08d27a5cb76e81.jpg",
+  },
+  24: {
+    completed: true,
+    date: "2025-08-19",
+    distance: "5.0",
+    pace: "6'02",
+    duration: "30:25",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/6b03185505e39b2f93c93c64b74d52f959a9c15f.jpg",
+  },
+  25: {
+    completed: true,
+    date: "2025-10-10",
+    distance: "5.0",
+    pace: "7'27",
+    duration: "37:37",
+    image:
+      "https://i0.hdslb.com/bfs/openplatform/1a3f3e2e2f3e4e1f6e8f4c6b7a8d9e0f1a2b3c4d.jpg",
   }
-
-  // 可以继续添加更多天的数据
-};
-
-// 获取某天的状态
-function getDayStatus(day: number) {
-  return runningData[day] || { completed: false };
 }
 
-// 显示某天的详情
-function showDayDetail(day: number) {
-  selectedDay.value = day;
-  showModal.value = true;
-}
+
+// 使用hooks
+const {
+  showModal,
+  selectedDay,
+  getDayStatus,
+  showDayDetail,
+  previousDay,
+  nextDay,
+  hasPreviousDay,
+  hasNextDay,
+  closeModal
+} = useModal(runningData)
+
+const {
+  completedDays,
+  totalDistance,
+  averagePace,
+  currentStreak,
+  recentRecords
+} = useRunningStats(runningData)
+
+const pageUrl = ref('')
+onMounted(() => {
+  pageUrl.value = window.location.href
+})
+
+const { shareToWeChat, shareToWeibo } = useShare({
+  completedDays,
+  totalDistance,
+  pageUrl
+})
+
+usePageTitle({ completedDays })
+
+// 键盘事件处理
+useKeyboard({
+  onArrowLeft: previousDay,
+  onArrowRight: nextDay,
+  onEscape: closeModal,
+  isEnabled: () => showModal.value
+})
 </script>
 
 <style scoped>
@@ -450,5 +647,15 @@ function showDayDetail(day: number) {
   50% {
     background-position: right center;
   }
+}
+
+.modal-fade-enter-active,
+.modal-fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.modal-fade-enter-from,
+.modal-fade-leave-to {
+  opacity: 0;
 }
 </style>
