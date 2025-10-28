@@ -1,2 +1,16 @@
 /* uno.css */
 @import '@unocss/reset/tailwind.css'; 
+
+/* VitePress 顶部导航栏子菜单层级感增强 */
+.vp-nav .vp-dropdown .vp-dropdown-item {
+  @apply pl-6 text-base font-normal;
+}
+.vp-nav .vp-dropdown .vp-dropdown-item .vp-dropdown-item {
+  @apply pl-10 text-[15px] font-semibold bg-gray-50 dark:bg-gray-900/60 border-l-2 border-blue-400/30 my-1 rounded-l-lg transition-all;
+}
+.vp-nav .vp-dropdown .vp-dropdown-item .vp-dropdown-item a {
+  @apply text-blue-700 dark:text-blue-300;
+}
+.vp-nav .vp-dropdown .vp-dropdown-item .vp-dropdown-item a:hover {
+  @apply underline text-blue-900 dark:text-blue-100;
+} 

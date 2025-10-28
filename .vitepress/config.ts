@@ -2,6 +2,7 @@ import { defineConfig } from 'vitepress'
 import UnoCSS from 'unocss/vite'
 import { presetUno, presetIcons } from 'unocss'
 import type { DefaultTheme } from 'vitepress'
+import { link } from 'fs'
 
 // 定义导航菜单项的类型
 interface NavItem {
@@ -11,7 +12,8 @@ interface NavItem {
 }
 
 export default defineConfig({
-  appearance: 'dark', // 默认使用黑色主题，但允许用户切换
+  lang: 'zh-CN',
+  appearance: 'dark',
   title: "Hikaru",
   description: "AI Native Coder",
   head: [
@@ -19,11 +21,23 @@ export default defineConfig({
   ],
   themeConfig: {
     outlineTitle: '本页目录',
-    
-    // 添加导航菜单
+    // 评论配置在 `.vitepress/giscus.ts` 中维护
     nav: [
       { text: '首页', link: '/' },
-      { 
+      {
+        text: 'Nas',
+        items: [
+          {
+            text: '私人影院资源篇',
+            link: '/nas/movie'
+          },
+          {
+            text: '转存',
+            link: '/nas/pan'
+          }
+        ]
+      },
+      {
         text: '工具',
         items: [
           {
@@ -47,78 +61,82 @@ export default defineConfig({
               { text: 'Tmux', link: '/tools/terminal/tmux' },
               { text: 'Yazi', link: '/tools/compatible/yazi' }
             ]
+          },
+          {
+            text: '在线工具',
+            items: [
+              { text: 'MD2Card', link: '/tools/plugins/mdcard' }
+            ]
           }
         ]
       },
-      // {
-      //   text: 'AI',
-      //   items: [
-      //     {
-      //       text: 'Cursor',
-      //       items: [
-      //         { text: '无限续杯', link: '/ai/cursor/free-trial' }
-      //       ]
-      //     },
-      //     {
-      //       text: '智能体',
-      //       items: [
-      //         { text: '基础概念', link: '/ai/agents/concepts' }
-      //       ]
-      //     }
-      //   ]
-      // },
-      // {
-      //   text: '前端八股文',
-      //   items: [
-      //     { text: '工程化', 
-      //       items: [
-      //         { text: '幽灵依赖', link: '/frontend/interview/ghost-dependencies' },
-      //         { text: 'Node.js模块机制', link: '/frontend/interview/node-modules' },
-      //         { text: 'ESM与CJS的区别', link: '/frontend/interview/esm-vs-cjs' },
-      //       ]
-      //     },
-      //     { text: 'Vue', 
-      //       items: [
-      //         { text: 'name 属性', link: '/frontend/interview/framework/vue-name' },
-      //       ]
-      //     }
-      //   ]
-      // },
-      // {
-      //   text: '编程',
-      //   items: [
-      //     { text: '项目', link: '/projects/' }
-      //   ]
-      // },
+      {
+        text: '技术分享',
+        items: [
+          {
+            text: 'DevOps',
+            items: [
+              { text: 'GitHub Actions', link: '/devops/github-actions' },
+              { text: 'Jenkins自动化部署', link: '/devops/jenkins' },
+            ]
+          },
+          {
+            text: '前端开发',
+            items: [
+              { text: 'NPM 包发布指南', link: '/frontend/npm-publish' },
+              { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
+              { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' },
+              { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
+              { text: 'Mini-Router学习', link: '/frontend/mini-router' },
+              { text: 'React Router 6 源码学习', link: '/frontend/react-router' },
+              { text: '高效批量管理自定义 SVG 图标最佳实践', link: '/frontend/vscode-svg-icon-plugin' }
+            ]
+          },
+          {
+            text: 'AI',
+            items: [
+              { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
+              { text: 'Roo Code集成模型', link: '/ai/roocode' },
+              { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
+              { text: 'Crush终端连接LLM', link: '/ai/crush' }
+            ]
+          },
+          {
+            text: 'Web3',
+            items: [
+              { text: 'Web3 学习计划', link: '/web3-learning-plan' },
+              { text: 'Store 项目', link: '/store-project' }
+            ]
+          }
+        ]
+      },
+      {
+        text: '项目',
+        items: [
+          {
+            text: 'VSCode 插件',
+            items: [
+              { text: '🧩 SVG 预览', link: '/projects/vscode-plugin-svg-preview' }
+            ]
+          },
+          {
+            text: 'Web网站',
+            items: [
+              { text: '🌐 网站展示', link: '/projects/web-sites' }
+            ]
+          }
+          // 可继续添加更多项目子菜单项
+        ]
+      },
       {
         text: '生活',
         items: [
           { text: '阅读', link: '/life/reading' },
           { text: '运动', link: '/life/running' },
+          { text: '十三邀打卡', link: '/life/thirteen-invitations' },
           { text: '观影记录', link: '/movie-collection' }
         ]
       },
-      // { 
-      //   text: '兴趣',
-      //   items: [
-      //     { 
-      //       text: '摄影',
-      //       items: [
-      //         { text: '构图基础', link: '/interests/photography/composition-basics' },
-      //         { text: '吊脚式构图', link: '/interests/photography/composition-dangling' }
-      //       ]
-      //     }
-      //     // 其他兴趣可以在这里添加，比如:
-      //     // { text: '绘画', items: [...] },
-      //     // { text: '音乐', items: [...] }
-      //   ]
-      // },
-      // {
-      //   text: '站点',
-      //   items: [
-      //     { text: 'Z-Library', link: '/sites/z-library' }
-      //   ]
-      // },
     ] satisfies DefaultTheme.NavItem[],
 
   },
