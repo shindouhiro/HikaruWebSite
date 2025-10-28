@@ -100,6 +100,13 @@ export default defineConfig({
               { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
               { text: 'Crush终端连接LLM', link: '/ai/crush' }
             ]
+          },
+          {
+            text: 'Web3',
+            items: [
+              { text: 'Web3 学习计划', link: '/web3-learning-plan' },
+              { text: 'Store 项目', link: '/store-project' }
+            ]
           }
         ]
       },
