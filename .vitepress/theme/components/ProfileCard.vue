@@ -490,23 +490,23 @@
                       dark:hover:shadow-[0_8px_28px_rgba(0,0,0,0.24)]
                       transition-all duration-500 ease-out
                       overflow-hidden cursor-pointer">
-            
+
             <!-- 顶部：项目预览 -->
             <div class="h-48 relative overflow-hidden">
               <!-- 渐变背景 -->
-              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-cyan-500/20 
+              <div class="absolute inset-0 bg-gradient-to-br from-indigo-500/20 to-cyan-500/20
                           backdrop-blur-[2px] z-10"></div>
-              
+
               <!-- 装饰图案 -->
               <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(0,0,0,0))]"></div>
-              
+
               <!-- 项目图标 -->
               <div class="absolute inset-0 flex items-center justify-center z-20">
                 <div class="text-6xl transform group-hover:scale-110 transition-transform duration-500">🌐</div>
               </div>
-              
+
               <!-- 渐变遮罩 -->
-              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent 
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent
                           opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30"></div>
             </div>
 
@@ -547,12 +547,103 @@
 
               <!-- 底部操作栏 -->
               <div class="flex items-center justify-between">
-                <a href="/projects/web-sites" 
+                <a href="/projects/web-sites"
                    class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium">
                   查看详情 →
                 </a>
                 <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
                   <span>2025-02-15</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 项目卡片 8 - Store电商平台 -->
+        <div class="group" @click="openStoreGitHub">
+          <div class="relative bg-white dark:bg-[#1a1a1a] rounded-2xl
+                      shadow-[0_2px_8px_rgba(0,0,0,0.08)]
+                      dark:shadow-[0_2px_8px_rgba(0,0,0,0.16)]
+                      hover:shadow-[0_8px_28px_rgba(0,0,0,0.12)]
+                      dark:hover:shadow-[0_8px_28px_rgba(0,0,0,0.24)]
+                      transition-all duration-500 ease-out
+                      overflow-hidden cursor-pointer">
+
+            <!-- 顶部：项目预览 -->
+            <div class="h-48 relative overflow-hidden">
+              <!-- 渐变背景 -->
+              <div class="absolute inset-0 bg-gradient-to-br from-blue-500/20 to-purple-600/20
+                          backdrop-blur-[2px] z-10"></div>
+
+              <!-- 装饰图案 -->
+              <div class="absolute inset-0 opacity-30 bg-[radial-gradient(circle_at_50%_120%,rgba(120,119,198,0.3),rgba(0,0,0,0))]"></div>
+
+              <!-- 项目图标 -->
+              <div class="absolute inset-0 flex items-center justify-center z-20">
+                <div class="text-6xl transform group-hover:scale-110 transition-transform duration-500">🛒</div>
+              </div>
+
+              <!-- 渐变遮罩 -->
+              <div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent
+                          opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-30"></div>
+            </div>
+
+            <!-- 底部：项目信息 -->
+            <div class="p-6">
+              <!-- 项目标题和状态 -->
+              <div class="flex items-start justify-between mb-4">
+                <h3 class="text-xl font-bold text-gray-900 dark:text-gray-100">
+                  Store
+                </h3>
+                <span class="px-2 py-1 text-xs font-medium rounded-full shadow-sm bg-blue-500 text-white">
+                  开发中
+                </span>
+              </div>
+
+              <!-- 项目描述 -->
+              <p class="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-6 line-clamp-3">
+                电商平台基础架构，基于 NestJS + MySQL + pnpm Monorepo，支持容器化部署
+              </p>
+
+              <!-- 技术标签 -->
+              <div class="flex flex-wrap gap-2 mb-6">
+                <span class="px-3 py-1 text-xs font-medium rounded-full
+                          bg-gray-100 dark:bg-gray-800
+                          text-gray-700 dark:text-gray-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          transition-colors duration-300">
+                  TypeScript
+                </span>
+                <span class="px-3 py-1 text-xs font-medium rounded-full
+                          bg-gray-100 dark:bg-gray-800
+                          text-gray-700 dark:text-gray-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          transition-colors duration-300">
+                  NestJS
+                </span>
+                <span class="px-3 py-1 text-xs font-medium rounded-full
+                          bg-gray-100 dark:bg-gray-800
+                          text-gray-700 dark:text-gray-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          transition-colors duration-300">
+                  MySQL
+                </span>
+                <span class="px-3 py-1 text-xs font-medium rounded-full
+                          bg-gray-100 dark:bg-gray-800
+                          text-gray-700 dark:text-gray-300
+                          hover:bg-gray-200 dark:hover:bg-gray-700
+                          transition-colors duration-300">
+                  Docker
+                </span>
+              </div>
+
+              <!-- 底部操作栏 -->
+              <div class="flex items-center justify-between">
+                <div class="text-blue-600 dark:text-blue-400 hover:underline text-sm font-medium cursor-pointer">
+                  查看项目 →
+                </div>
+                <div class="flex items-center gap-2 text-gray-500 dark:text-gray-400 text-sm">
+                  <span>GitHub</span>
                 </div>
               </div>
             </div>
@@ -777,6 +868,11 @@ const filteredCards = computed(() => {
 const selectCategory = (category) => {
   selectedCategory.value = category
 }
+
+// 打开 Store GitHub 仓库
+const openStoreGitHub = () => {
+  window.open('https://github.com/shindouhiro/Store', '_blank')
+}
 </script>
 
 <style scoped>
@@ -784,6 +880,8 @@ const selectCategory = (category) => {
   max-width: 100% !important;
   width: 100% !important;
   padding: 0 !important;
+  position: relative;
+  z-index: 1;
 }
 
 :deep(.VPDoc) {
@@ -887,5 +985,23 @@ a:active {
   .project-wrapper .qr-popup {
     @apply w-28 h-28;
   }
+}
+
+/* 确保菜单层级高于内容 */
+:deep(.VPNavBar) {
+  z-index: 100 !important;
+}
+
+:deep(.VPNavBarHamburger) {
+  z-index: 101 !important;
+}
+
+:deep(.VPNav) {
+  z-index: 100 !important;
+}
+
+/* 项目卡片层级不能高于菜单 */
+.project-wrapper .group {
+  z-index: 2 !important;
 }
 </style>
