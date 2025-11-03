@@ -1,6 +1,6 @@
 <template>
   <div class="bookshelf-wrapper">
-    <div class="max-w-[1600px] mx-auto px-4 py-8">
+    <div class="bookshelf-inner">
       <!-- 页面标题 -->
       <div class="mb-8 text-center">
         <h1 class="text-3xl md:text-4xl font-bold bg-gradient-to-r from-blue-500 to-teal-500 
@@ -11,7 +11,7 @@
       </div>
 
       <!-- 原有的网格布局 -->
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6 px-4 md:px-12">
         <!-- 正在阅读 -->
         <div class="bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-lg">
           <h3 class="text-xl font-bold mb-4 text-gray-800 dark:text-gray-200 flex items-center gap-2">
@@ -110,7 +110,7 @@
       </div>
 
       <!-- 阅读统计后添加年度目标模块 -->
-      <div class="mt-6 bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-lg">
+      <div class="mt-6 mx-4 md:mx-12 bg-white dark:bg-[#1a1a1a] rounded-xl p-6 shadow-lg">
         <h3 class="text-xl font-bold mb-6 text-gray-800 dark:text-gray-200 flex items-center gap-2">
           <div class="i-carbon-target text-orange-500" />
           2025年阅读目标
@@ -183,6 +183,22 @@ const currentReading = [
     progress: 20,
     lastRead: '2025-02-15'
   },
+  {
+    id: 3,
+    title: '白先勇细说红楼梦',
+    author: '白先勇',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b5a3e8647907680738b9858869419c04c2b4c498.png',
+    progress: 0,
+    lastRead: '2025-05-11'
+  },
+  {
+    id: 4,
+    title: '刻意练习',
+    author: '安德斯·艾利克森',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/46fcecc96c4fdb852c9a9a7739c6159012e9b184.png',
+    progress: 10,
+    lastRead: '2025-05-11'
+  }
 ]
 
 const completedBooks = [
@@ -194,6 +210,35 @@ const completedBooks = [
     tags: ['传记', '商业'],
     completedDate: '2025-2-13'
   },
+  {
+    id: 4,
+    title: '与他共度61世',
+    author: '的灰',
+    cover: 'https://i0.hdslb.com/bfs/article/6df8f906d042a01cad35460faffac8de16643837.png',
+    tags: ['传记'],
+    completedDate: '2025-4-15'
+  },
+  {
+    id: 5,
+    title: '我的二本学生',
+    author: '黄灯',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/c1429ce7041ac10275e4296a80f268deb17a969e.png',
+    completedDate: '2025-07-18'
+  },
+  {
+    id: 6,
+    title: '姥姥语录',
+    author: '倪萍',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/011beff6d04caddf79b8b81e0df548b6960a05fc.png',
+    completedDate: '2025-09-21'
+  },
+  {
+    id: 7,
+    title: '我在北京送快递',
+    author: '胡安焉',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/f5724307376913fe88de5f540f16ceb7d3772ec6.png',
+    completedDate: '2025-09-28'
+  }
 ]
 
 // 更新统计数据
@@ -219,43 +264,36 @@ function getMotivationalMessage() {
 
 <style scoped>
 .bookshelf-wrapper {
-  max-width: 100% !important;
-  width: 100% !important;
+  width: 100vw !important;
+  max-width: 100vw !important;
+  margin-left: calc(-50vw + 50%) !important;
+  margin-right: calc(-50vw + 50%) !important;
   padding: 0 !important;
+  overflow-x: hidden !important;
+  background: transparent;
 }
-
-:deep(.VPDoc) {
-  padding: 0 !important;
-  width: 100% !important;
-  max-width: 100% !important;
+.bookshelf-inner {
+  max-width: 1100px; /* 你可以用 900px/1000px/1200px 视实际效果调整 */
+  width: 100%;
+  margin: 0 auto;
+  padding: 0 16px; /* 两侧留白，移动端友好 */
 }
-
-:deep(.VPDoc .container) {
-  max-width: none !important;
-  margin: 0 !important;
-  padding: 0 !important;
-}
-
-:deep(.VPContent) {
-  padding: 0 !important;
-}
-
+:deep(.VPDoc),
+:deep(.VPDoc .container),
+:deep(.VPContent),
 :deep(.VPDoc .content) {
-  max-width: 100% !important;
-  width: 100% !important;
   padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 0 !important;
 }
-
 :deep(.VPDoc h1) {
   display: none;
 }
-
-/* 添加渐变动画 */
 .bg-gradient-to-r {
   background-size: 200% 200%;
   animation: gradient 6s ease infinite;
 }
-
 @keyframes gradient {
   0% {
     background-position: 0% 50%;

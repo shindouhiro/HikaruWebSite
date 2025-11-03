@@ -61,6 +61,11 @@ provide('toggle-appearance', async ({ clientX: x, clientY: y }: MouseEvent) => {
         <!-- 可以添加侧边栏底部内容 -->
       </div>
     </template>
+
+    <!-- 透传文档底部插槽，供评论等组件使用 -->
+    <template #doc-after>
+      <slot name="doc-after" />
+    </template>
   </DefaultTheme.Layout>
 </template>
 
