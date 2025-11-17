@@ -100,7 +100,7 @@ export default defineConfig({
               { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
               { text: 'Roo Code集成模型', link: '/ai/roocode' },
               { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
-              { text: 'Crush终端连接LLM', link: '/ai/crush' }
+              { text: 'Crush终端连接LLM', link: '/ai/crush' },
             ]
           },
           {
@@ -126,7 +126,9 @@ export default defineConfig({
             items: [
               { text: '🌐 网站展示', link: '/projects/web-sites' }
             ]
-          }
+          },
+          { text: 'nbagent.ai 前端技术栈介绍', link: '/nbagent-frontend-stack' }
+
           // 可继续添加更多项目子菜单项
         ]
       },
