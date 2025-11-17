@@ -120,7 +120,7 @@ export default defineConfig({
           {
             text: 'VSCode 插件',
             items: [
-              { text: '🧩 SVG 预览', link: '/projects/vscode-plugin-svg-preview' }
+              { text: '🧩 SVG 预览', link: '/frontend/vscode-svg-icon-plugin' }
             ]
           },
           {
