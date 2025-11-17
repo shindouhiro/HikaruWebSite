@@ -49,7 +49,8 @@ export default defineConfig({
           {
             text: 'Windows',
             items: [
-              { text: 'uTools', link: '/tools/windows/utools' }
+              { text: 'uTools', link: '/tools/windows/utools' },
+              { text: 'PowerShell', link: '/tools/windows/powershell' }
             ]
           },
           {
@@ -86,6 +87,7 @@ export default defineConfig({
               { text: 'NPM 包发布指南', link: '/frontend/npm-publish' },
               { text: 'NPM 发布组件库', link: '/frontend/component-ui' },
               { text: 'NPM 发布CLI工具', link: '/frontend/cli-publish' },
+              { text: 'pnpm-lock 文件详解', link: '/frontend-pnpm-lock-guide' },
               { text: 'Mini-Vue 学习打卡', link: '/frontend/mini-vue' },
               { text: 'Mini-Router学习', link: '/frontend/mini-router' },
               { text: 'React Router 6 源码学习', link: '/frontend/react-router' },
