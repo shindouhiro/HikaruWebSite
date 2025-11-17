@@ -3,3 +3,7 @@ node_modules
 .vitepress/cache/deps
 .vitepress/cache/deps
 .vitepress/cache/deps
+ai/.DS_Store
+src/.DS_Store
+tools/.DS_Store
+.DS_Store
