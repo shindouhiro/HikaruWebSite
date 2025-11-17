@@ -135,6 +135,10 @@ export default defineConfig({
         ]
       },
       {
+        text: 'ATC',
+        link: '/docs/atc'
+      },
+      {
         text: '生活',
         items: [
           { text: '阅读', link: '/life/reading' },
