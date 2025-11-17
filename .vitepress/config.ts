@@ -129,15 +129,15 @@ export default defineConfig({
               { text: '🌐 网站展示', link: '/projects/web-sites' }
             ]
           },
-          { text: 'nbagent.ai 前端技术栈介绍', link: '/nbagent-frontend-stack' }
-
+          { text: 'nbagent.ai 前端技术栈介绍', link: '/nbagent-frontend-stack' },
+          {
+            text: 'ATC(与阿里合作项目)',
+            link: '/docs/atc'
+          },
           // 可继续添加更多项目子菜单项
         ]
       },
-      {
-        text: 'ATC',
-        link: '/docs/atc'
-      },
+    
       {
         text: '生活',
         items: [
