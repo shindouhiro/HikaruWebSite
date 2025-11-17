@@ -60,7 +60,9 @@ export default defineConfig({
               { text: 'LazyGit', link: '/tools/compatible/lazygit' },
               { text: 'LazyDocker', link: '/tools/terminal/lazydocker' },
               { text: 'Tmux', link: '/tools/terminal/tmux' },
-              { text: 'Yazi', link: '/tools/compatible/yazi' }
+              { text: 'Yazi', link: '/tools/compatible/yazi' },
+              { text: 'Kitty', link: '/tools/terminal/kitty' },
+              { text: 'Warp', link: '/tools/terminal/warp' }
             ]
           },
           {
