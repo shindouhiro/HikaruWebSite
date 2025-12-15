@@ -57,6 +57,9 @@ RooCode 是基于魔塔社区 API 的智能编程助手，具有以下特性：
 
 配置 RooCode 的 API 连接设置：
 
++ [模型列表](https://www.modelscope.cn/models)
++ 选择你想要使用的模型
+
 ```bash
 # API 基础 URL
 url: https://api-inference.modelscope.cn/v1/
@@ -93,7 +96,6 @@ model: Qwen/Qwen3-Coder-480B-A35B-Instruct
 配置完成后，你将能够：
 
 *   🚀 **快速生成代码**：通过注释描述功能，AI 自动生成代码
-*   🔧 **智能代码补全**：AI 根据上下文提供智能补全建议
 *   📖 **自动注释生成**：为复杂代码自动生成详细注释
 *   🛠️ **代码优化建议**：AI 分析代码并提供优化方案
 *   🐛 **智能调试辅助**：帮助定位和解决代码问题

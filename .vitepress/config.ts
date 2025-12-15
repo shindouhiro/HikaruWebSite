@@ -99,9 +99,11 @@ export default defineConfig({
           {
             text: 'AI',
             items: [
+              { text: 'Gemini Pro', link: '/ai/gemini' },
               { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
               { text: 'Roo Code集成模型', link: '/ai/roocode' },
               { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
+              { text: 'Codex Cli接入指南', link: '/ai/codex-cli' },
               { text: 'Crush终端连接LLM', link: '/ai/crush' },
             ]
           },
@@ -137,7 +139,7 @@ export default defineConfig({
           // 可继续添加更多项目子菜单项
         ]
       },
-    
+
       {
         text: '生活',
         items: [
