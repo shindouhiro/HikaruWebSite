@@ -66,6 +66,12 @@ export default defineConfig({
             ]
           },
           {
+            text: '效率工具',
+            items: [
+              { text: 'Obsidian', link: '/tools/compatible/obsidian' }
+            ]
+          },
+          {
             text: '在线工具',
             items: [
               { text: 'MD2Card', link: '/tools/plugins/mdcard' }

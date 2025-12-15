@@ -18,7 +18,7 @@
         <!-- 视频播放器 -->
         <iframe 
           v-show="isLoaded"
-          :src="src"
+          :src="playerSrc"
           allowfullscreen="true"
           scrolling="no"
           border="0"
@@ -38,15 +38,24 @@
   </template>
   
   <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, computed } from 'vue'
   
   interface Props {
-    src: string         // 完整的B站播放器URL
+    src?: string         // 完整的B站播放器URL
+    bvid?: string        // B站视频ID (e.g. BV1xxxx)
     title?: string      // 视频标题（可选）
     description?: string // 视频描述（可选）
   }
   
-  defineProps<Props>()
+  const props = defineProps<Props>()
+
+  const playerSrc = computed(() => {
+    if (props.bvid) {
+      return `//player.bilibili.com/player.html?bvid=${props.bvid}&page=1&high_quality=1`
+    }
+    return props.src || ''
+  })
+
   
   const isLoaded = ref(false)
   
