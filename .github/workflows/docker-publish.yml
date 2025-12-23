@@ -9,6 +9,8 @@ on:
 env:
   REGISTRY: docker.io
   IMAGE_NAME: shindouhiro/website
+  REMOTE_HOST: 8.152.208.97
+  REMOTE_USER: root
 
 jobs:
   build:
@@ -61,4 +63,21 @@ jobs:
           platforms: linux/amd64,linux/arm64
           push: true
           tags: ${{ steps.meta.outputs.tags }}
-          labels: ${{ steps.meta.outputs.labels }} 
+          labels: ${{ steps.meta.outputs.labels }}
+
+      # 设置 SSH 密钥
+      - name: Set up SSH
+        uses: webfactory/ssh-agent@v0.8.0
+        with:
+          ssh-private-key: ${{ secrets.SSH_PRIVATE_KEY }}
+
+      # 添加服务器到已知主机
+      - name: Add server to known_hosts
+        run: |
+          mkdir -p ~/.ssh
+          ssh-keyscan -H ${{ env.REMOTE_HOST }} >> ~/.ssh/known_hosts
+
+      # 执行远程部署命令
+      - name: Deploy to server
+        run: |
+          ssh ${{ env.REMOTE_USER }}@${{ env.REMOTE_HOST }} "cd docker && ./restart_services.sh"

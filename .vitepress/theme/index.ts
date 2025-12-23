@@ -1,6 +1,9 @@
 import { h } from 'vue'
 import DefaultTheme from 'vitepress/theme'
-import 'uno.css'  // 直接从 unocss 导入
+import type { Theme } from 'vitepress'
+import 'uno.css'
+import './custom.css'
+import Giscus from './widgets/Giscus.vue'
 import UnocssLayout from './layouts/UnocssLayout.vue'
 import ProfileCard from './components/ProfileCard.vue'
 import CheckInCalendar from './components/CheckInCalendar.vue'
@@ -17,13 +20,24 @@ import LazyDockerGuide from './components/LazyDockerGuide.vue'
 import TmuxGuide from './components/TmuxGuide.vue'
 import PhotoCompositionGuide from './components/PhotoCompositionGuide.vue'
 import BilibiliVideo from '../../components/BilibiliVideo.vue'
-import './custom.css'
+import GitHubActions from './components/GitHubActions.vue'
+import WechatShare from './components/WechatShare.vue'
+import BilibiliPlayer from './components/BilibiliPlayer.vue'
+import DouyinEmbed from '../../frontend/components/DouyinEmbed.vue'
+import PackageExecutor from '../../frontend/components/PackageExecutor.vue'
+import ThirteenInvitations from '../../frontend/components/ThirteenInvitations.vue'
+import MiniVueProgress from '../../components/MiniVueProgress.vue'
+import WebSitesShowcase from './components/WebSitesShowcase.vue'
+import JenkinsGuide from './components/JenkinsGuide.vue'
+import Web3LearningPlan from '../../components/Web3LearningPlan.vue'
+import StoreProjectCard from '../../components/StoreProjectCard.vue'
+import GeminiPage from './components/GeminiPage.vue'
 
-export default {
+const theme: Theme = {
   extends: DefaultTheme,
-  Layout: UnocssLayout,
+  // 包装自定义布局，向 doc-after 槽位注入 Giscus
+  Layout: () => h(UnocssLayout, null, { 'doc-after': () => h(Giscus) }),
   enhanceApp({ app }) {
-    // 组件注册
     app.component('ProfileCard', ProfileCard)
     app.component('CheckInCalendar', CheckInCalendar)
     app.component('LifePage', LifePage)
@@ -39,5 +53,19 @@ export default {
     app.component('TmuxGuide', TmuxGuide)
     app.component('PhotoCompositionGuide', PhotoCompositionGuide)
     app.component('BilibiliVideo', BilibiliVideo)
+    app.component('GitHubActions', GitHubActions)
+    app.component('WechatShare', WechatShare)
+    app.component('BilibiliPlayer', BilibiliPlayer)
+    app.component('DouyinEmbed', DouyinEmbed)
+    app.component('PackageExecutor', PackageExecutor)
+    app.component('ThirteenInvitations', ThirteenInvitations)
+    app.component('MiniVueProgress', MiniVueProgress)
+    app.component('WebSitesShowcase', WebSitesShowcase)
+    app.component('JenkinsGuide', JenkinsGuide)
+    app.component('Web3LearningPlan', Web3LearningPlan)
+    app.component('StoreProjectCard', StoreProjectCard)
+    app.component('GeminiPage', GeminiPage)
   }
 }
+
+export default theme

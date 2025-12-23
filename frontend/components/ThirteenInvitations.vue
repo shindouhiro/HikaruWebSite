@@ -1,0 +1,444 @@
+<template>
+  <div class="bg-gray-50 dark:bg-gray-900 thirteen-invitations-wrapper">
+    <div class="w-full min-h-screen px-4 py-8">
+      <!-- 页面标题 -->
+      <div class="mb-12 text-center">
+        <h1 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 
+                   bg-clip-text text-transparent animate-fade-in">
+          十三邀打卡
+        </h1>
+        <p class="mt-4 text-gray-600 dark:text-gray-400">
+          记录每一期的观看记录
+        </p>
+      </div>
+      <!-- 季数选择器 -->
+      <div class="mb-8 flex flex-wrap justify-center gap-4">
+        <button
+          v-for="season in 8"
+          :key="season"
+          @click="() => currentSeason = season"
+          class="px-6 py-2 rounded-full transition-all duration-200 shadow-sm"
+          :class="[
+            currentSeason === season 
+              ? 'bg-blue-100 text-blue-600 border-blue-200 dark:bg-blue-900/30 dark:text-blue-400 dark:border-blue-700/50 hover:bg-blue-200 dark:hover:bg-blue-900/50 active:bg-blue-300 dark:active:bg-blue-900/70 shadow-md' 
+              : 'bg-white dark:bg-gray-800 text-gray-700 dark:text-gray-300 border border-gray-200 dark:border-gray-700 hover:bg-gray-50 dark:hover:bg-gray-700 active:bg-gray-100 dark:active:bg-gray-600 hover:shadow-md'
+          ]"
+        >
+          第{{ season }}季
+        </button>
+      </div>
+
+      <!-- 集数列表 -->
+      <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+        <div
+          v-for="episode in currentSeasonEpisodes"
+          :key="episode.id"
+          class="bg-white dark:bg-gray-800 rounded-lg overflow-hidden
+                 transition-all duration-200
+                 border border-gray-200 dark:border-gray-700
+                 hover:shadow-lg dark:hover:shadow-gray-900/50
+                 hover:translate-y-[-2px]"
+          :class="episode.watched ? 'border-green-500/20' : ''"
+        >
+          <div class="relative overflow-hidden">
+            <!-- 封面图 -->
+            <img
+              :src="episode.cover || defaultCover"
+              :alt="episode.title"
+              class="w-[154px] h-[209px] object-cover mx-auto mt-4"
+              @error="handleImageError"
+            />
+            <!-- 观看状态标签 -->
+            <div
+              v-if="episode.watched"
+              class="absolute top-2 right-2 bg-green-500 text-white px-3 py-1 rounded-full text-sm
+                     shadow-lg backdrop-blur-sm bg-opacity-90"
+            >
+              已观看
+            </div>
+          </div>
+
+          <div class="p-4">
+            <h3 class="text-lg font-medium mb-1 text-gray-800 dark:text-gray-200 line-clamp-2">
+              {{ episode.title }}
+            </h3>
+            <p class="text-sm text-gray-600 dark:text-gray-400 mb-3 line-clamp-1">
+              {{ episode.guest }}
+            </p>
+          
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
+
+<script setup lang="ts">
+import { ref, computed } from 'vue'
+
+interface Episode {
+  id: string
+  title: string
+  guest: string
+  cover: string
+  watched: boolean
+  watchDate?: string
+}
+
+// 当前选中的季数
+const currentSeason = ref<number>(1)
+
+// 模拟数据 - 实际使用时可以从API获取
+const episodes = ref<Record<number, Episode[]>>({
+  1: [
+    {
+      id: '1-1',
+      title: '许知远对话罗振宇',
+      guest: '罗振宇',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8b359e8e9db3fdb39091132ca80f6fbbb1255a8e.png',
+      watched: true,
+    },
+    {
+      id: '1-2', 
+      title: '许知远对话姚晨',
+      guest: '姚晨',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/1fa96377efae154a861b90beacdffb6578bb81b9.png',
+      watched: true
+    },
+    {
+      id: '1-3',
+      title: '许知远对话二次元',
+      guest: '二次元',
+      cover: 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg', 
+      watched: false
+    },
+    {
+      id: '1-4',
+      title: '许知远对话冯小刚',
+      guest: '冯小刚',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/1c28c95068c8fa4a1240d6ab6382cca91b6badd1.png',
+      watched: true
+    },
+    {
+      id: '1-5',
+      title: ' 许知远对话叶准 ',
+      guest: '叶准',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/67a397b83b8bbe9ce85a56760fdc191ecc9d2f0c.png',
+      watched: true
+    },
+    {
+      id: '1-6',
+      title: '许知远对话李安',
+      guest: '李安',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/002b16de14bf474750faa442b16983b2d3e0e706.png',
+      watched: true 
+    },
+    {
+      id: '1-7',
+      title: '许知远对话张楚',
+      guest: '张楚',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/6033de28306130ae0f1a664249c1ed4645a42fc0.png',
+      watched: true
+    },
+    {
+    id: '1-8',
+    title: ' 许知远对话蔡澜 ',
+    guest: '蔡澜',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/93181ca34dccab68015da8feeb51ef417e8e4894.png',
+    watched: true
+  },
+  {
+    id: '1-9',
+    title: ' 许知远对话俞飞鸿 ',
+    guest: '俞飞鸿',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/30bfe15029da88eb19230471f15b181492be5f46.png',
+    watched: true
+  },
+  {
+    id: '1-10',
+    title: '许知远对话陈嘉映',
+    guest: '陈嘉映',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b5d7ade8bff82e8aac8807688d55ff75595adb7e.png',
+    watched: true
+  },
+  {
+    id: '1-11',
+    title: '许知远对话贾樟柯',
+    guest: '贾樟柯',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/6cb598a5b45b208514587687797c1894309f5f85.png',
+    watched: true
+  },
+  {
+    id: '1-12',
+    title: '许知远对话上海彩虹室内合唱团',
+    guest: '合唱团',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '1-13',
+    title: '许知远对话白先勇',
+    guest: '白先勇',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/08db0c7d96c99c80b860b4aa30eab1e35abc82c4.png',
+    watched: true
+  },
+ 
+  ],
+  2: [
+  {
+    id: '2-1',
+    title: '许知远对话马东',
+    guest: '马东',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/e45f02accc978f52c23de197ad8a93b97f25e08e.png',
+    watched: true
+  },
+  {
+    id: '2-2',
+    title: '许知远对话诺兰',
+    guest: '诺兰',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-3',
+    title: '许知远对话蔡国强',
+    guest: '蔡国强',
+    cover: '',
+    watched: false
+  },
+
+ 
+  {
+    id: '2-4',
+    title: '许知远对话张艾嘉',
+    guest: '张艾嘉',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/b4b1e9b849d937c37a3ec2def304555332b88968.png',
+    watched: false
+  },
+  {
+    id: '2-5',
+    title: '许知远对话西川',
+    guest: '西川',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/2218102a45794545891d605ecdbc2c2efea50133.png',
+    watched: true
+  },
+  {
+    id: '2-6',
+    title: '许知远对话汪健',
+    guest: '汪健',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/97c84bb4148435f0c44a9c02080d8d703dec8cac.png',
+    watched: true
+  },
+  {
+    id: '2-7',
+    title: '林志玲',
+    guest: '林志玲',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-8',
+    title: '罗大佑',
+    guest: '罗大佑',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-9',
+    title: '许知远对话李诞',
+    guest: '李诞',
+    cover: '',
+    watched: false
+  },
+  {
+    id: '2-10',
+    title: '许知远对话许宏',
+    guest: '许宏',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/43ee79f04d3e532c1f81af2467670d2496382d50.png',
+    watched: true
+  },
+  {
+    id: '2-11',
+    title: '许知远对话王小川',
+    guest: '王小川',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/2b0d309d022362065b637cd4e8f5c03e13776bbd.png',
+    watched: true
+  },
+  {
+    id: '2-12',
+    title: '许知远对话刘畅',
+    guest: '刘畅',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/3a319a6571b25eeb5b6cf35a6b36e4ff8b02ead1.png',
+    watched: true
+  },
+  {
+    id: '2-13',
+    title: '许知远对话姜文',
+    guest: '姜文',
+    cover: 'https://i0.hdslb.com/bfs/openplatform/3a6cb44afdb36f9f5c9407f5895e63be58e195f9.png',
+    watched: true
+  },
+  ],
+  8: [
+    {
+      id: '8-1',
+      title: '许知远对话许倬云',
+      guest: '许倬云',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8754ffa6721efb1e9bad2d233f36c8c2bddfedce.png',
+      watched: true
+    },
+    {
+      id: '8-2',
+      title: '许知远对话谭元元',
+      guest: '谭元元',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/e793593a6b89c3dfbc8dfddb492baa3d7323f274.png',
+      watched: false
+    },
+    {
+      id: '8-3',
+      title: '许知远对话陈年喜',
+      guest: '陈年喜',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/07deb91de213f21ce9468e1ca3eec4399ed2a2bf.png',
+      watched: false
+    },
+    {
+      id: '8-4',
+      title: '许知远对话梁建章',
+      guest: '梁建章',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/799da4ce08cab3d2abdfb2f84d25a7146bc9b6bb.png',
+      watched: false
+    },
+    {
+      id: '8-5',
+      title: '许知远对话曾孝濂',
+      guest: '曾孝濂',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/7cc92dc8b747e5de5ac1d7e445e7d0ce7fb4cbe9.png',
+      watched: false
+    },
+    {
+      id: '8-6',
+      title: '许知远对话林小英',
+      guest: '林小英',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/d079e0a489b393c42a7c67bbd970d88c4252fb57.png',
+      watched: true
+    },
+    {
+      id: '8-7',
+      title: '许知远对话桑德尔',
+      guest: '桑德尔',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/8e6776172968144b55c53c23373511debaf8dc7b.png',
+      watched: true
+    },
+    {
+      id: '8-8',
+      title: '许知远对话陈东升',
+      guest: '陈东升',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/acdb389ece7ba88a3908b7a957536bde1696d835.png',
+      watched: false
+    },
+    {
+      id: '8-9',
+      title: '许知远对话田连元',
+      guest: '田连元',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/211512846fe2083764f43e16de60eb08263c377f.png',
+      watched: false
+    },
+    {
+      id: '8-10',
+      title: '许知远对话村上隆',
+      guest: '村上隆',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/b827e2d389b6583bcf5daa8472f13148977b59ed.png',
+      watched: false
+    },
+    {
+      id: '8-11',
+      title: '许知远对话咏梅',
+      guest: '咏梅',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/27b0206792aa9ac64f7ff3ffb876fb27146b4b9a.png',
+      watched: false
+    },
+    {
+      id: '8-12',
+      title: '许知远对话伍迪艾伦',
+      guest: '伍迪艾伦',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/02a69ae7e1801e9238e27906769f914adb2b7872.png',
+      watched: false
+    },
+    {
+      id: '8-13',
+      title: '许知远对话珍古道尔',
+      guest: '珍古道尔',
+      cover: 'https://i0.hdslb.com/bfs/openplatform/67e705ab907d1e2e6dba62051a3b6e84cb64c552.png',
+      watched: false
+    }
+  ]
+  
+  // 更多季数...
+})
+
+// 当前季的集数列表
+const currentSeasonEpisodes = computed(() => {
+  return episodes.value[currentSeason.value] || []
+})
+
+// 标记为已观看
+const markAsWatched = (episode: Episode) => {
+  episode.watched = true
+  episode.watchDate = new Date().toISOString().split('T')[0]
+}
+
+// 取消标记
+const markAsUnwatched = (episode: Episode) => {
+  episode.watched = false
+  episode.watchDate = undefined
+}
+
+// 默认封面图
+const defaultCover = 'https://i0.hdslb.com/bfs/archive/4c5c0d19bf3deb0b4df4925d1c9008d2a2d4fb37.jpg'
+
+// 处理图片加载错误
+const handleImageError = (e: Event) => {
+  const target = e.target as HTMLImageElement
+  target.src = defaultCover
+}
+</script>
+
+<style scoped>
+.thirteen-invitations-wrapper {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+}
+
+:deep(.VPDoc) {
+  padding: 0 !important;
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+:deep(.VPDoc .container) {
+  max-width: none !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+:deep(.VPContent) {
+  padding: 0 !important;
+}
+
+:deep(.VPDoc .content) {
+  max-width: 100% !important;
+  width: 100% !important;
+  padding: 0 !important;
+  gap: 1rem !important;
+}
+
+:deep(.VPDocAside) {
+  display: none !important;
+}
+
+:deep(.VPDoc h1) {
+  display: none;
+}
+</style> 
