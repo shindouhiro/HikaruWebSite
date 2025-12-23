@@ -109,7 +109,7 @@ export default defineConfig({
               { text: 'Gemini Pro', link: '/ai/gemini' },
               { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
               { text: 'Roo Code集成模型', link: '/ai/roocode' },
-              { text: 'Claude Cli使用指南', link: '/ai/claude-cli' },
+              { text: 'Claude CLI 使用技巧', link: '/ai/claude-cli' },
               { text: 'Codex Cli接入指南', link: '/ai/codex-cli' },
               { text: 'Crush终端连接LLM', link: '/ai/crush' },
             ]
