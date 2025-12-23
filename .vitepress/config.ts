@@ -105,6 +105,7 @@ export default defineConfig({
           {
             text: 'AI',
             items: [
+              { text: 'Antigravity 使用技巧', link: '/ai/antigravity' },
               { text: 'Gemini Pro', link: '/ai/gemini' },
               { text: '解决Cursor Claude模型被封', link: '/ai/claude-model' },
               { text: 'Roo Code集成模型', link: '/ai/roocode' },
